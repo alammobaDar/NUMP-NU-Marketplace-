@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Light gray background */
+}
+
+/* Header styling */
+header {
+    background-color: #1E3A8A; /* Deep blue */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 70px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Logo styling */
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+header h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #FFD700; /* Yellow for NU */
+    font-family: "Georgia", serif; /* Fancy font for 'Marketplace' */
+}
+
+/* Navigation links */
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Sign out button */
+header .sign-out {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+header .sign-out:hover {
+    text-decoration: underline;
+}
+
+/* Main content area */
+main {
+    margin: 20px auto;
+    background-color: white;
+    width: 90%;
+    height: calc(100vh - 90px); /* Remaining height after header */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow-y: scroll;
+}
+
+.container{
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Space between divs */
+    justify-content: flex-start;
+}
+.product-display{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 300px; /* Fixed width for each card */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.item-product-display{
+    width: 100%;
+}
+
+.product-display .image-container{
+    width: 100%;
+    height: 200px; /* Fixed height for uniform size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Ensures the image doesn't overflow */
+    border-radius: 4px;
+}
+
+.product-display .image{
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures consistent image scaling */
+    display: block
+}
