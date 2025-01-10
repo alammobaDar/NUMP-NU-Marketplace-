@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <title> {% block title %}DJANGO APP{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav class="nav-bar">
+            <a href="{% url "home" %}">
+                <h1 class="nav-title">NU Marketplace</h1>
+            </a>
+            {% if user.is_authenticated %}
+                <a href="{% url "user:products" %}">Products</a>
+                <a href="{% url "user:mywallet" %}">My Wallet</a>
+                <a href="{% url "user:profile" %}">Profile</a>
+                <form class="signout" action="{% url "auth:signout" %}" method="post">
+                    {% csrf_token %}
+                    <button class= "signout-button">Submit</button>   
+                </form>  
+            {% else %}
+                <a href="{% url "auth:login"%}">Login</a>
+                <a href="{% url "auth:register" %}">Register</a>
+            {% endif %}
+        
+        </nav>
+    </header>
+    <main>
+        {% block contents %}
+            
+        {% endblock %}
+    </main>
+        
+</body>
+</html>
