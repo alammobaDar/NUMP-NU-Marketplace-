@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product
 
 
@@ -8,7 +8,7 @@ def products_page(request):
     return render(request, 'mp_user/MyProduct.html', {'product': product})
 
 def product_info_page(request, slug):
-    product = Product.objects.get(slug=slug)
+    product = get_object_or_404(Product, slug=slug)
     return render(request, 'mp_user/ProductInformation.html', {'product': product})
 
 def my_wallet_page(request):

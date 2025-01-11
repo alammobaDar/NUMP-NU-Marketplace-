@@ -1,19 +1,19 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Product Information
+    {{ product.product_name }}
 {% endblock %}
 
 {% block contents %}
     <h1>Product Information</h1>
         <section>
             <div class="image-container">
-                <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
+                <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
             </div>
-            <h2>{{ item.product_name }}</h2>
-            <p>{{ item.description }}</p>
-            <p>{{ item.price }}</p>
-            <p>{{ item.stocks }}</p>
-            <h3>Seller: {{ item.seller }}</h3>
+            <h2>{{ product.product_name }}</h2>
+            <p>{{ product.description }}</p>
+            <p>{{ product.price }}</p>
+            <p>{{ product.stocks }}</p>
+            <h3>Seller: {{ product.seller }}</h3>
         </section>
 {% endblock %}
