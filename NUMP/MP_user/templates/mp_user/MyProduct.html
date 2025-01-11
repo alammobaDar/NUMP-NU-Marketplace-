@@ -9,18 +9,22 @@
     <h1 style="text-align: center; padding-top: 20px; color: #888;">Products</h1>
     <div class="container" >
     {% for item in product %}
+    <section>
+        <a href="{% url "user:product_info" slug=item.slug %}">    
             <div class="product-display">
-            <article class="item-product-display">
-                <div class="image-container">
-                    <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
-                </div>
-                <h2>{{ item.product_name }}</h2>
-                <p>{{ item.description }}</p>
-                <p>{{ item.price }}</p>
-                <p>{{ item.stocks }}</p>
-                <h3>Seller: {{ item.seller }}</h3>
-            </article>
-        </div>    
+                <article class="item-product-display">
+                    <div class="image-container">
+                        <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
+                    </div>
+                    <h2>{{ item.product_name }}</h2>
+                    <p>{{ item.description }}</p>
+                    <p>{{ item.price }}</p>
+                    <p>{{ item.stocks }}</p>
+                    <h3>Seller: {{ item.seller }}</h3>
+                </article>
+            </div>
+        </a>    
+    </section>
     {% endfor %}
     </div>
 
