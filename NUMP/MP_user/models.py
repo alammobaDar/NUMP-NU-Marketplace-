@@ -7,6 +7,7 @@ class MarketplaceUser(models.Model):
     user_name = models.CharField(max_length=75)
     contact = models.CharField(max_length=11)  
     createdAt = models.DateField(auto_now_add=True)
+    
 
     def __str__(self):
         return self.user_name
