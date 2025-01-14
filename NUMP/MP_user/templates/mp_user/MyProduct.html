@@ -17,7 +17,7 @@
                         <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
                     </div>
                     <h2>{{ item.product_name }}</h2>
-                    <p>{{ item.description }}</p>
+                    <p class="product-description-text">{{ item.description }}</p>
                     <p>{{ item.price }}</p>
                     <p>{{ item.stocks }}</p>
                     <h3>Seller: {{ item.seller }}</h3>
@@ -26,7 +26,10 @@
         </a>    
     </section>
     {% endfor %}
+    <a href="{% url "user:new_product" %}">
+        <div class="new-product-display">
+            <h1>+</h1>
+        </div>
+    </a>
     </div>
-
-
 {% endblock %}

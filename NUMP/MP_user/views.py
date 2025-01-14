@@ -16,3 +16,6 @@ def my_wallet_page(request):
 
 def profile_page(request):
     return render(request, 'mp_user/Profile.html')
+
+def new_product(request):
+    return render(request, 'mp_user/CreateProduct.html')
