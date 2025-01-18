@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class MarketplaceUser(models.Model):
     user_id = models.AutoField(primary_key=True)
-    user_name = models.OneToOneField(User, on_delete=models.CASCADE, max_length=75)
+    user_name = models.OneToOneField(User, on_delete=models.CASCADE, related_name='mpuser')
     contact = models.CharField(max_length=11)  
     createdAt = models.DateField(auto_now_add=True)
     
