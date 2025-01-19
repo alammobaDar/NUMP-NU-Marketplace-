@@ -1,7 +1,7 @@
 
 from django import forms
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product
+from .models import MarketplaceUser, Product
 from .forms import CreateProduct
 
 
@@ -25,7 +25,8 @@ def new_product(request):
         form = CreateProduct(request.POST, request.FILES)
         if form.is_valid():
             new_product = form.save(commit=False)
-            new_product.seller = request.user
+            mp_user = get_object_or_404(MarketplaceUser, user_name=request.user)
+            new_product.seller = mp_user
             new_product.save()
             return redirect('user:products')
     else:
