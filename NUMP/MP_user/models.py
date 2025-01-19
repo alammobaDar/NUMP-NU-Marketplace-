@@ -12,7 +12,7 @@ class MarketplaceUser(models.Model):
     
 
     def __str__(self):
-        return self.user_name
+        return self.contact
 
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
