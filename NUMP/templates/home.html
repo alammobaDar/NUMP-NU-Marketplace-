@@ -7,18 +7,20 @@
 {% block contents %}
     <div class="container" >
     {% for item in product %}
-        <div class="product-display">
-            <article class="item-product-display">
-                <div class="image-container">
-                    <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
-                </div>
-                <h2>{{ item.product_name }}</h2>
-                <p class="product-description-text">{{ item.description }}</p>
-                <p>{{ item.price }}</p>
-                <p>{{ item.stocks }}</p>
-                <h3>Seller: {{ item.seller }}</h3>
-            </article>
-        </div>    
+        <a href="{% url "user:product_info" slug=item.slug %}">    
+            <div class="product-display">
+                <article class="item-product-display">
+                    <div class="image-container">
+                        <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
+                    </div>
+                    <h2>{{ item.product_name }}</h2>
+                    <p class="product-description-text">{{ item.description }}</p>
+                    <p>{{ item.price }}</p>
+                    <p>{{ item.stocks }}</p>
+                    <h3>Seller: {{ item.seller }}</h3>
+                </article>
+            </div>
+        </a>    
     {% endfor %}
     </div>
 {% endblock %}

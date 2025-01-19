@@ -7,7 +7,8 @@ from .forms import CreateProduct
 
 # Create your views here.
 def products_page(request):
-    product = Product.objects.all()
+    mp_user = get_object_or_404(MarketplaceUser, user_name=request.user)
+    product = Product.objects.filter(seller=mp_user)
     return render(request, 'mp_user/MyProduct.html', {'product': product})
 
 def product_info_page(request, slug):
