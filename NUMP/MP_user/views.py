@@ -1,5 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+
+from django import forms
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
+from .forms import CreateProduct
 
 
 # Create your views here.
@@ -18,4 +21,13 @@ def profile_page(request):
     return render(request, 'mp_user/Profile.html')
 
 def new_product(request):
-    return render(request, 'mp_user/CreateProduct.html')
+    if request.method == "POST":
+        form = CreateProduct(request.POST, request.FILES)
+        if form.is_valid():
+            new_product = form.save(commit=False)
+            new_product.seller = request.user
+            new_product.save()
+            return redirect('user:products')
+    else:
+        form = CreateProduct()
+    return render(request, 'mp_user/CreateProduct.html', {'form':form})

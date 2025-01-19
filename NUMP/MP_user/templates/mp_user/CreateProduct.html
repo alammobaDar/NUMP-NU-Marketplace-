@@ -5,5 +5,9 @@
 {% endblock %}
 
 {% block contents %}
-    <h1>new_product</h1>
+    <form class="form-with-validation" action="{% url "user:new_product" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button class="submit-form">Submit</button>
+    </form>
 {% endblock %}
