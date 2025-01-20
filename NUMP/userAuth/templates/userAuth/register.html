@@ -8,7 +8,29 @@
     <h1>Register</h1>
     <form class="form-with-validation" action="{% url "auth:register" %}" method="post">
         {% csrf_token %}
-        {{ form }}
+        <label for="username">Username: </label>
+        <ul>
+            <li>Required</li>
+            <li>150 characters or fewer. Letters, digits and @/./+/-/_ only.</li>
+        </ul>
+        <input type="text" name="username" class="input-text" placeholder="Username" required><br><br>
+
+        <label for="contact">Contact: </label>
+        <input type="text" name="contact" class="input-text" maxlength=11 placeholder="Contact" required><br><br>
+        <label for="password1">Password:</label>
+        <ul>
+            <li>Your password can’t be too similar to your other personal information.</li>
+            <li>Your password must contain at least 8 characters.</li>
+            <li>Your password can’t be a commonly used password.</li>
+            <li>Your password can’t be entirely numeric.</li>
+        </ul>
+        <input type="password" name="password1" class="input-text" placeholder="Password" required><br><br>
+
+        <label for="password2">Password Confirmation: </label>
+        <ul>
+            <li>Enter the same password as before, for verification.</li>
+        </ul>
+        <input type="password" name="password2" class="input-text" placeholder="Password" required><br><br>
         <button class="submit-form">Submit</button>
     </form>
 {% endblock %}

@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Python Debugger: Django",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}\\NUMP\\manage.py",
+            "args": [
+                "runserver"
+            ],
+            "cwd": "${workspaceFolder}\\NUMP",               // Set the working directory
+            "env": {                                   // Environment variables (if needed)
+                "DJANGO_SETTINGS_MODULE": "NUMP.settings" // Replace with your settings module
+            },   
+            "django": true
+        }
+    ]
+}
