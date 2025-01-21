@@ -33,3 +33,9 @@ def new_product(request):
     else:
         form = CreateProduct()
     return render(request, 'mp_user/CreateProduct.html', {'form':form})
+
+def delete(request, id):
+    product = Product.objects.get(product_id=id)
+    product.delete()
+    
+    return redirect('user:products')

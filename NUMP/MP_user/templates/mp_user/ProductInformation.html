@@ -15,5 +15,8 @@
             <p>{{ product.price }}</p>
             <p>{{ product.stocks }}</p>
             <h3>Seller: {{ product.seller }}</h3>
-        </section>
+            <a href="{% url "user:delete" product.product_id %}">
+                    <button >Delete</button>
+            </a>
+        </section> 
 {% endblock %}

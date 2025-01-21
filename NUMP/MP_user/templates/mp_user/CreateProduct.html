@@ -5,26 +5,32 @@
 {% endblock %}
 
 {% block contents %}
-    <form class="form-with-validation" action="{% url "user:new_product" %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form }}
-        {% comment %} <div>
-            <label for="product-name">Product Name: </label>
-            <input type="text" name="name" id="product-name" class="input-text" placeholder="Product Name" required><br><br>
+<form class="form-with-validation" action="{% url 'user:new_product' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <br>
+    <div class="form-div">
+        <label>Product Name: </label>
+        {{ form.product_name}}
+    </div><br><br>
+    <div class="form-div">
+        <label>Description: </label><br>
+        {{ form.description}}
+    </div><br><br>
+    <div class="form-div">
+        <label>Price: </label>
+        {{ form.price}}
+    </div><br><br>
+    <div class="form-div">
+        <label>Stocks: </label>
+        {{ form.stocks}}
+    </div><br><br>
+    <div class="form-div">
+        <label>Image: </label>
+        {{ form.image}}
+    </div>
 
-            <label for="product-description">Description: </label><br>
-            <textarea name="description" id="product-description" class="description" cols="40" rows="10" wrap="hard" required></textarea><br><br>
+    <!-- Submit Button -->
+    <button type="submit" class="submit-form">Submit</button>
+</form>
 
-            <label for="product-price">Price: </label>
-            <input type="number" name="price" id="product-price" class="input-text" placeholder="Price" required><br><br>
-
-            <label for="product-stocks">Stocks: </label>
-            <input type="number" name="stocks" id="product-stocks" class="input-text" placeholder="Stocks" required><br><br>
-
-            <label for="product-image">Image: </label>
-            <input type="file" name="product-image" id="product-image" accept="image/*" class="input-text" required><br><br>
-
-        </div> {% endcomment %}
-        <button class="submit-form">Submit</button>
-    </form>
 {% endblock %}

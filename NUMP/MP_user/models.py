@@ -31,3 +31,7 @@ class Product(models.Model):
 
     def __str__(self):
             return self.product_name
+    
+    def can_delete(self, user):
+         if user.get_username() == self.seller.user_name.username:
+            return True
