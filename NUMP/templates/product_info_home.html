@@ -15,12 +15,5 @@
             <p>{{ product.price }}</p>
             <p>{{ product.stocks }}</p>
             <h3>Seller: {{ product.seller }}</h3>
-            <a href="{% url "user:delete" product.product_id %}">
-                    <button >Delete</button>
-            </a>
-
-            <a href="{% url "user:delete" product.product_id %}">
-                <button >Edit</button>
-            </a>
         </section> 
 {% endblock %}

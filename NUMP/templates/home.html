@@ -7,7 +7,7 @@
 {% block contents %}
     <div class="container" >
     {% for item in product %}
-        <a href="{% url "user:product_info" slug=item.slug %}">    
+        <a href="{% url "product_info" slug=item.slug %}">    
             <div class="product-display">
                 <article class="item-product-display">
                     <div class="image-container">
