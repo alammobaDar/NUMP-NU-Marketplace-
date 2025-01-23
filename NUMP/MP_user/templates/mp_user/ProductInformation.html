@@ -18,9 +18,6 @@
             <a href="{% url "user:delete" product.product_id %}">
                     <button >Delete</button>
             </a>
-
-            <a href="{% url "user:delete" product.product_id %}">
-                <button >Edit</button>
-            </a>
+            <a href="{% url "user:update" %}">edit</a>
         </section> 
 {% endblock %}

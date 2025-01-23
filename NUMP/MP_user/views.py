@@ -39,3 +39,8 @@ def delete(request, id):
     product.delete()
     
     return redirect('user:products')
+
+def update(request, slug):
+    updated_product = get_object_or_404(Product, slug=slug)
+
+    return render(request, 'mp_user/test.html', {'updated_product': updated_product})
