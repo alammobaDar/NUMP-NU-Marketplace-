@@ -18,6 +18,29 @@
             <a href="{% url "user:delete" product.product_id %}">
                     <button >Delete</button>
             </a>
-            <a href="{% url "user:update" %}">edit</a>
-        </section> 
+            <button id="editButton">Edit</button>
+        </section>
+ 
+            <div id="editFormContainer" class="hidden-form">
+                <div class="form-content">
+                    <span id="closeButton" class="close">&times;</span>
+                    <form method="POST" action="{% url 'user:update' %}">
+                        {% csrf_token %}
+                        <label for="product_name">Product Name:</label>
+                        <input type="text" id="product_name" name="product_name" value="{{ product.product_name }}">
+        
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description">{{ product.description }}</textarea>
+        
+                        <label for="price">Price:</label>
+                        <input type="number" id="price" name="price" value="{{ product.price }}">
+        
+                        <label for="stocks">Stocks:</label>
+                        <input type="number" id="stocks" name="stocks" value="{{ product.stocks }}">
+        
+                        <button type="submit">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+         
 {% endblock %}

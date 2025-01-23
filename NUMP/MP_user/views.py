@@ -40,7 +40,10 @@ def delete(request, id):
     
     return redirect('user:products')
 
-def update(request, slug):
-    updated_product = get_object_or_404(Product, slug=slug)
+def update(request):
 
-    return render(request, 'mp_user/test.html', {'updated_product': updated_product})
+    if request.method == "POST":
+        form = CreateProduct(request.POST, request.FILES)
+        
+
+    return render(request, 'mp_user/test.html', {'form':form})
