@@ -48,8 +48,8 @@ def update(request, id):
     image = request.POST["image"]
 
     if image is '':
-        image = "./No_Image_Available.jpg"
-        
+        image = "No_Image_Available.jpg"
+
     product = Product.objects.filter(product_id=id).update(
         product_name = name, 
         description= description,

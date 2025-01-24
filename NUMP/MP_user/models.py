@@ -22,7 +22,7 @@ class Product(models.Model):
     price = models.FloatField()
     stocks = models.IntegerField()
     slug = AutoSlugField(populate_from='product_name', unique_with='seller')
-    image = models.ImageField(upload_to='product_images/', blank=True, null=True, default="./No_Image_Available.jpg")
+    image = models.ImageField(upload_to='product_images/', blank=True, null=True, default="No_Image_Available.jpg")
     seller = models.ForeignKey(
         MarketplaceUser,
         on_delete=models.CASCADE,
