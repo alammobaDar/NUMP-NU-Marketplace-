@@ -24,7 +24,7 @@
             <div id="editFormContainer" class="hidden-form">
                 <div class="form-content">
                     <span id="closeButton" class="close">&times;</span>
-                    <form method="POST" action="{% url 'user:update' product.product_id %}">
+                    <form class="form-with-validation" method="POST" action="{% url 'user:update' product.product_id %}" enctype="multipart/form-data">
                         {% csrf_token %}
                             <br>
                             <div class="form-div">
