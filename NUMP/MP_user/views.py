@@ -41,21 +41,12 @@ def delete(request, id):
     return redirect('user:products')
 
 def update(request, id):
-    name = request.POST["product_name"]
-    description = request.POST["description"]
-    price = request.POST["price"]
-    stocks = request.POST["stocks"]
-    image = request.POST["image"]
-
-    if image is '':
-        image = "No_Image_Available.jpg"
-
-    product = Product.objects.filter(product_id=id).update(
-        product_name = name, 
-        description= description,
-        price=price,
-        stocks=stocks,
-        image=image
-    )
-    return redirect('user:products')
-        
+    product = Product.objects.get(product_id=id)
+    if request.method == 'POST':
+        form = CreateProduct(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('user:products')
+    else:
+        form = CreateProduct(instance=product)
+    return render(request, 'mp_user/ProductInformation.html', {'form':form, 'product':product})

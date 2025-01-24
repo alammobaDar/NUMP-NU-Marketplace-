@@ -24,33 +24,31 @@
             <div id="editFormContainer" class="hidden-form">
                 <div class="form-content">
                     <span id="closeButton" class="close">&times;</span>
-                        <form method="POST" action="{% url 'user:update' product.product_id %}">
+                    <form method="POST" action="{% url 'user:update' product.product_id %}">
                         {% csrf_token %}
-                        <label for="product_name">Product Name:</label><br>
-                        <input type="text" id="product_name" name="product_name" value="{{ product.product_name }}"><br><br>
-        
-                        <label for="description">Description:</label><br>
-                        <textarea id="description" name="description">{{ product.description }}</textarea><br><br>
-        
-                        <label for="price">Price:</label><br>
-                        <input type="number" id="price" name="price" value="{{ product.price }}"><br><br>
-        
-                        <label for="stocks">Stocks:</label><br>
-                        <input type="number" id="stocks" name="stocks" value="{{ product.stocks }}"><br><br>
-
-                        <label for="image">Image:</label><br>
-                        {% if product.image %}
-                            <p>Current Image:</p>
-                            <img src="{{ product.image.url }}" alt="Product Image" style="max-width: 200px;"><br>
-                            <p>{{ product.image.name }}</p>
-                        {% else %}
-                            <p>No image uploaded yet.</p>
-                        {% endif %}
-                        <input type="file" id="image" name="image" value="{{ product.image.url }}"><br><br>
-        
+                            <br>
+                            <div class="form-div">
+                                <label>Product Name: </label>
+                                {{ form.product_name}}
+                            </div><br><br>
+                            <div class="form-div">
+                                <label>Description: </label><br>
+                                {{ form.description}}
+                            </div><br><br>
+                            <div class="form-div">
+                                <label>Price: </label>
+                                {{ form.price}}
+                            </div><br><br>
+                            <div class="form-div">
+                                <label>Stocks: </label>
+                                {{ form.stocks}}
+                            </div><br><br>
+                            <div class="form-div">
+                                <label>Image: </label>
+                                {{ form.image}}
+                            </div><br>
                         <button type="submit">Save Changes</button>
                     </form>
-
                 </div>
             </div>
          
