@@ -40,10 +40,22 @@ def delete(request, id):
     
     return redirect('user:products')
 
-def update(request):
+def update(request, id):
+    name = request.POST["product_name"]
+    description = request.POST["description"]
+    price = request.POST["price"]
+    stocks = request.POST["stocks"]
+    image = request.POST["image"]
 
-    if request.method == "POST":
-        form = CreateProduct(request.POST, request.FILES)
+    if image is '':
+        image = "./No_Image_Available.jpg"
         
-
-    return render(request, 'mp_user/test.html', {'form':form})
+    product = Product.objects.filter(product_id=id).update(
+        product_name = name, 
+        description= description,
+        price=price,
+        stocks=stocks,
+        image=image
+    )
+    return redirect('user:products')
+        

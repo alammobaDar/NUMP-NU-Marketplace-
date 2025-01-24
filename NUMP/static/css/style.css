@@ -147,6 +147,8 @@ main {
 .new-product-display h1{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 4rem;
+
+    
 }.hidden-form {
     display: none;
     position: fixed;
