@@ -1,3 +1,4 @@
+from pyexpat import model
 from django import forms
 from . import models
 from django.contrib.auth.forms import UserCreationForm
@@ -14,6 +15,12 @@ class CreateProduct(forms.ModelForm):
             'image'
             ]
         
+    def clean_image(self):
+        image = self.cleaned_data.get('image')
+        if not image and not self.instance.pk:
+            raise forms.ValidationError("An image is required when creating a product.")
+        return image
+    
 
 class SignupForms(UserCreationForm):
     contact = forms.CharField()
