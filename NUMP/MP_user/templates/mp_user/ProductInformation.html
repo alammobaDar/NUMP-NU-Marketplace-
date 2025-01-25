@@ -6,17 +6,18 @@
 
 {% block contents %}
 
-    <div>
-        <h1>Product Information</h1>
+    <div class="info-container">
         <section>
             <div class="image-container">
                 <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
             </div>
-            <h2>{{ product.product_name }}</h2>
-            <p>{{ product.description }}</p>
-            <p>{{ product.price }}</p>
-            <p>{{ product.stocks }}</p>
-            <h3>Seller: {{ product.seller }}</h3>
+            <div class="info">
+                <h1>{{ product.product_name }}</h1>
+                <p>₱{{ product.price }}</p>
+                <p>Stocks: {{ product.stocks }}</p>
+                <p>Description: {{ product.description }}</p>
+                <h2>Seller: {{ product.seller }}</h2>
+            </div>
             <a href="{% url "user:delete" product.product_id %}">
                 <button >Delete</button>
             </a><br><br><br>
