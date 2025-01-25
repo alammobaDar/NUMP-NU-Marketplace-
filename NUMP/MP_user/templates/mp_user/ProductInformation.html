@@ -24,7 +24,7 @@
             <div id="editFormContainer" class="hidden-form">
                 <div class="form-content">
                     <span id="closeButton" class="close">&times;</span>
-                    <form class="form-with-validation" method="POST" action="{% url 'user:update' product.product_id %}" enctype="multipart/form-data">
+                    <form class="form-with-validation" method="POST" action="{% url 'user:product_info' product.slug %}" enctype="multipart/form-data">
                         {% csrf_token %}
                             <br>
                             <div class="form-div">
@@ -44,7 +44,8 @@
                                 {{ form.stocks}}
                             </div><br><br>
                             <div class="form-div">
-                                <label>Image: </label>
+                                <label>Image: </label><br>
+                                <img src="{{ product.image.url}}" alt="{{product.title}}">
                                 {{ form.image}}
                             </div><br>
                         <button type="submit">Save Changes</button>

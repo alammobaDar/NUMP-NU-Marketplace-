@@ -13,7 +13,14 @@ def products_page(request):
 
 def product_info_page(request, slug):
     product = get_object_or_404(Product, slug=slug)
-    return render(request, 'mp_user/ProductInformation.html', {'product': product})
+    if request.method == 'POST':
+        form = CreateProduct(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('user:products')
+    else:
+        form = CreateProduct(instance=product)
+    return render(request, 'mp_user/ProductInformation.html', {'form':form, 'product':product})
 
 def my_wallet_page(request):
     return render(request, 'mp_user/MyWallet.html')
@@ -40,13 +47,13 @@ def delete(request, id):
     
     return redirect('user:products')
 
-def update(request, id):
-    product = Product.objects.get(product_id=id)
-    if request.method == 'POST':
-        form = CreateProduct(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
-            return redirect('user:products')
-    else:
-        form = CreateProduct(instance=product)
-    return render(request, 'mp_user/ProductInformation.html', {'form':form, 'product':product})
+# def update(request, id):
+#     product = Product.objects.get(product_id=id)
+#     if request.method == 'POST':
+#         form = CreateProduct(request.POST, request.FILES, instance=product)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('user:products')
+#     else:
+#         form = CreateProduct(instance=product)
+#     return render(request, 'mp_user/ProductInformation.html', {'form':form, 'product':product})
