@@ -7,15 +7,23 @@
 {% block contents %}
     <section>
         <div class="login">
-            <h1>Login</h1>
-            <form class="form-with-validation" action="{% url "auth:login" %}" method="post">
-                {% csrf_token %}
-                <label for="username">Username: </label>
-                <input type="text" name="username" class="text-input" placeholder="Username" required>
-                <label for="password">Password: </label>
-                <input type="password" name="password" class="text-input" placeholder="Password" required>
-                <button class="submit-form">Submit</button>
-            </form>
+            <div class="logo">
+                <img src="/media/product_images/nu_logo.png" alt="NU LOGO">
+                <h1 class="nav-title">NU Marketplace</h1>
+            </div>
+            <div class="form-container">
+                <form class="form-with-validation" action="{% url "auth:login" %}" method="post">
+                    {% csrf_token %}
+                    <div class="input_container">
+                        <input type="text" name="username" class="text-input" placeholder="Username" required><br>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" name="password" class="text-input" placeholder="Password" required><br>
+                    </div>
+                    <button class="submit-form">Submit</button>
+                </form>
+            </div>
+            
         </div>
         
     </section>
