@@ -5,15 +5,27 @@
 {% endblock %}
 
 {% block contents %}
-    <h1>Product Information</h1>
-        <section>
-            <div class="image-container">
-                <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
+<div class="info-container">
+    <section>
+        <div class="image-container-info">
+            <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
+        </div>
+        <div class="info">
+            <h1 class="product-name">{{ product.product_name }}</h1>
+            <p>by {{product.seller}}</p>
+            <div class="price-stocks">
+                <p>Price: <span style="font-weight:bold">₱{{ product.price }}</span></p>
+                <p>Stocks: <span style="font-weight:bold">{{ product.stocks }}</span></p>
             </div>
-            <h2>{{ product.product_name }}</h2>
-            <p>{{ product.description }}</p>
-            <p>{{ product.price }}</p>
-            <p>{{ product.stocks }}</p>
-            <h3>Seller: {{ product.seller }}</h3>
-        </section> 
+            <p class="product-description">
+                <span style="font-weight:bold">Description:</span><br>
+                {{ product.description }}
+            </p>
+            <div class="button-container">
+                <button class="submit-button">Buy now</button>
+                <button class="submit-button">Add to cart</button>
+            </div>
+        </div>
+    </section>     
+</div>
 {% endblock %}

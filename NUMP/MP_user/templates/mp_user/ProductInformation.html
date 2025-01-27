@@ -22,11 +22,12 @@
                     <span style="font-weight:bold">Description:</span><br>
                     {{ product.description }}
                 </p>
-
-                <a href="{% url "user:delete" product.product_id %}">
-                    <button >Delete</button>
-                </a><br><br>
-                <button id="editButton">Edit</button>
+                <div class="button-container">
+                    <a href="{% url "user:delete" product.product_id %}">
+                        <button class="submit-button" >Delete</button>
+                    </a>
+                    <button class="submit-button" id="editButton">Edit</button>
+                </div>
             </div>
         </section>
             
@@ -62,7 +63,7 @@
                         <img src="{{ product.image.url}}" alt="{{product.title}}">
                         {{ form.image}}
                     </div><br>
-                <button type="submit">Save Changes</button>
+                <button class="submit-button" type="submit">Save Changes</button>
             </form>
         </div>
     </div>

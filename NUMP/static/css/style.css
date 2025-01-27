@@ -152,7 +152,7 @@ main {
 
 .image-container-info img{
     width: 450px;
-    height: 450px;
+    height: 100%;
     border: 1px solid #3f3f3f;
     border-radius: 8px;
     padding: 8px;
@@ -189,6 +189,43 @@ main {
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 100px;
+    margin-block: 50px; 
+}
+
+.signout-container{
+    display: flex;
+    /* align-self: flex-start; */
+    float: right;
+}
+
+.submit-button{
+    background-color: #192f89; /* Dark blue background */
+    color: #ffd700; /* Yellow text */
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Slight shadow */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-button:hover{
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.4); /* Deeper shadow */
+}
+
+.submit-button:active{
+    transform: scale(0.95); 
 }
     
 .hidden-form {
