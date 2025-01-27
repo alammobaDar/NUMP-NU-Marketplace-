@@ -138,18 +138,22 @@ main {
     font-size: 4rem;
 }
 
+
 .info-container{
+    font-family: Helvetica, sans-serif;
+}
+.info-container section{
     margin: 30px;
     display: flex;
     position: relative;
+    gap: 15px;
 }
 
 
-.image-container img{
-    float:left;
+.image-container-info img{
     width: 450px;
     height: 450px;
-    border: 1px solid #ccc;
+    border: 1px solid #3f3f3f;
     border-radius: 8px;
     padding: 8px;
     background-color: #f9f9f9;
@@ -158,8 +162,33 @@ main {
 }
 
 .info{
-    margin-left: 15px;
+    border: 1px solid #3f3f3f;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
 
+.product-name{
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.price-stocks{
+    font-size: 1em;
+    display:flex;
+    justify-content: space-between;  
+    margin-right: 200px;  
+}
+.product-description{
+    border: 1px solid #3f3f3f;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
     
 .hidden-form {

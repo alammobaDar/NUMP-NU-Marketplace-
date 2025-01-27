@@ -8,21 +8,28 @@
 
     <div class="info-container">
         <section>
-            <div class="image-container">
+            <div class="image-container-info">
                 <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
             </div>
             <div class="info">
-                <h1>{{ product.product_name }}</h1>
-                <p>₱{{ product.price }}</p>
-                <p>Stocks: {{ product.stocks }}</p>
-                <p>Description: {{ product.description }}</p>
-                <h2>Seller: {{ product.seller }}</h2>
+                <h1 class="product-name">{{ product.product_name }}</h1>
+                <p>by {{product.seller}}</p>
+                <div class="price-stocks">
+                    <p>Price: <span style="font-weight:bold">₱{{ product.price }}</span></p>
+                    <p>Stocks: <span style="font-weight:bold">{{ product.stocks }}</span></p>
+                </div>
+                <p class="product-description">
+                    <span style="font-weight:bold">Description:</span><br>
+                    {{ product.description }}
+                </p>
+
+                <a href="{% url "user:delete" product.product_id %}">
+                    <button >Delete</button>
+                </a><br><br>
+                <button id="editButton">Edit</button>
             </div>
-            <a href="{% url "user:delete" product.product_id %}">
-                <button >Delete</button>
-            </a><br><br><br>
-            <button id="editButton">Edit</button>
         </section>
+            
     </div>
  
     <div id="editFormContainer" class="hidden-form">
