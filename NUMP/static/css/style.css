@@ -24,7 +24,7 @@ header .logo {
 }
 
 header .logo img {
-    height: 50px;
+    height: 75px;
     margin-right: 10px;
 }
 
@@ -200,7 +200,6 @@ main {
 
 .signout-container{
     display: flex;
-    /* align-self: flex-start; */
     float: right;
 }
 

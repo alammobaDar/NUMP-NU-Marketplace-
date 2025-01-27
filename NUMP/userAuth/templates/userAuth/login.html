@@ -6,7 +6,8 @@
 
 {% block contents %}
     <section>
-        <h1>Login</h1>
+        <div class="login">
+            <h1>Login</h1>
         <form class="form-with-validation" action="{% url "auth:login" %}" method="post">
             {% csrf_token %}
             <label for="username">Username: </label>
@@ -15,5 +16,7 @@
             <input type="password" name="password" class="text-input" placeholder="Password" required>
             <button class="submit-form">Submit</button>
         </form>
+        </div>
+        
     </section>
 {% endblock %}
