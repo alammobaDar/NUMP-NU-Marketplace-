@@ -330,7 +330,6 @@ main {
     margin-right: 10px;
 }
 
-
 .submit-form{
     width: 80%;
     height: 40px;
@@ -380,14 +379,15 @@ main {
 }
 
 .upload-preview-image{
-    height: 370px;
+    height: 450px;
+    display: grid;
     border: 1px solid #3f3f3f;
     border-radius: 8px;
-    padding: 8px;
+    padding: 12px;
     background-color: rgb(255, 252, 252);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    display: flexbox;
+    width:300px;
     margin-bottom: 15px;
     position:relative;
 }
@@ -395,7 +395,10 @@ main {
 .upload-preview-image div{
     display: flex;
     justify-content: center;
+    height: fit-content;
     align-items: center;
+    width:290px;
+    
 }
 
 .text-input-container{
@@ -403,6 +406,8 @@ main {
     margin-left: 20px;
     width: 100%;
 }
+
+
 
 
 

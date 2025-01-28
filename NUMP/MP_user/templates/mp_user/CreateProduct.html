@@ -10,16 +10,19 @@
             <div class="product-form">
                 {% csrf_token %}
                 <div class="upload-preview-image">
-                    <label>Image:</label>
-                    <input type="file" name="image" accept="image/*" id="id_image">
-                    <div id="previewContainer" style="margin-top: 20px;">
-                        <img id="previewImage" src="#" alt="Image Preview" style="display: none; max-width: 400px; max-height: 400px;">
+                    <div>
+                        <label>Image:</label>
+                        <input type="file" name="image" accept="image/*" id="id_image">
+                    </div>
+                    
+                    <div id="previewContainer" style="margin-top: 10px;">
+                        <img id="previewImage" src="#" alt="Image Preview" style="display: none; max-width: 370px; max-height: 370px;">
                     </div>
                 </div>
 
                 <div class="text-input-container">
-                    <label>Product Name: </label>
-                    <div class="product-info-container">
+                    <div class="input-container">
+                        <label>Product Name: </label>
                         <input type="text" name="product_name" maxlength="100" required id="id_product_name">
                     </div>
 
