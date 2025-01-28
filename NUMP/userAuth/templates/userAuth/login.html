@@ -14,17 +14,20 @@
             <div class="form-container">
                 <form class="form-with-validation" action="{% url "auth:login" %}" method="post">
                     {% csrf_token %}
-                    <div class="input_container">
+                    <div class="input-container">
+                        <img src="/media/product_images/user_logo.png" alt="user">
                         <input type="text" name="username" class="text-input" placeholder="Username" required><br>
                     </div>
-                    <div class="input-container">
+                    <div class="input-container">   
+                        <img src="/media/product_images/password_logo.png" alt="password ">
                         <input type="password" name="password" class="text-input" placeholder="Password" required><br>
                     </div>
-                    <button class="submit-form">Submit</button>
+
+                    <div class="submit-form">
+                        <button>Submit</button>
+                    </div>
                 </form>
-            </div>
-            
+            </div>         
         </div>
-        
     </section>
 {% endblock %}
