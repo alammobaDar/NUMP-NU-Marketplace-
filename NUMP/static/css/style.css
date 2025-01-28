@@ -70,6 +70,7 @@ header .sign-out:hover {
 main {
     margin: 20px auto;
     background-color: white;
+    position: relative;
     width: 90%;
     height: calc(100vh - 90px); /* Remaining height after header */
     border-radius: 10px;
@@ -257,19 +258,37 @@ main {
     margin-right: -10px;
 }
 
-.login{
+ .auth{
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
+    max-width: 100%;    /* Prevent horizontal overflow */
+    max-height: 100%;   /* Prevent vertical overflow */
+    box-sizing: border-box; /* Include padding and border in size calculation */
+    overflow: auto;
     transform: translate(-50%, -50%);
     justify-self: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: fit-content;
+    height: fit-content;
+
+}
+
+.login{
     background: rgb(241, 240, 240);
     padding: 20px;
-    border-radius: 10px;
     width: 350px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.register{
+    background-color: rgb(241, 240, 240);
+    padding: 20px;
+    width: 400px;
+}
+
+
 
 .form-container{
     display: flex;
