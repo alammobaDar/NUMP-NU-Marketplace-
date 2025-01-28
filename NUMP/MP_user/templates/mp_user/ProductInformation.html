@@ -19,8 +19,8 @@
                     <p>Stocks: <span style="font-weight:bold">{{ product.stocks }}</span></p>
                 </div>
                 <p class="product-description">
-                    <span style="font-weight:bold">Description:</span><br>
-                    {{ product.description }}
+                    <span style="font-weight:bold;">Description:</span><br><br>
+                    <span style="padding:15px;">{{ product.description }}</span>
                 </p>
                 <div class="button-container">
                     <a href="{% url "user:delete" product.product_id %}">

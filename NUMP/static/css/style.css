@@ -29,6 +29,12 @@ header {
     margin-right: 10px;
 }
 
+.title{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000000; /* Yellow for NU */
+    font-family: "Georgia", serif; /* Fancy font for 'Marketplace' */ 
+}
 header h1 {
     font-size: 1.5em;
     font-weight: bold;
@@ -54,17 +60,6 @@ header nav a:hover {
     text-decoration: underline;
 }
 
-/* Sign out button */
-header .sign-out {
-    color: white;
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: bold;
-}
-
-header .sign-out:hover {
-    text-decoration: underline;
-}
 
 /* Main content area */
 main {
@@ -85,6 +80,7 @@ main {
     flex-direction: row;
     gap: 15px; /* Space between divs */
     justify-content: flex-start;
+    padding: 30px;
 }
 
 .container div{
@@ -167,6 +163,7 @@ main {
     border: 1px solid #3f3f3f;
     border-radius: 8px;
     padding: 8px;
+    width: 100%;
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -314,6 +311,7 @@ main {
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
+    margin-bottom: 15px;
 }
 
 .input-container input{
@@ -371,4 +369,47 @@ main {
 .submit-form:active{
     transform: scale(0.95);  
 }
+
+.product-form{
+    background-color: rgb(241, 240, 240);
+    display:flex;
+    padding: 20px;
+    width: 1100px;
+    gap: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.upload-preview-image{
+    height: 370px;
+    border: 1px solid #3f3f3f;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: rgb(255, 252, 252);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flexbox;
+    margin-bottom: 15px;
+    position:relative;
+}
+
+.upload-preview-image div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-input-container{
+    display: grid;
+    margin-left: 20px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
 
