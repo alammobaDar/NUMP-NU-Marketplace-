@@ -19,10 +19,17 @@
                         <li>Required</li>
                         <li>150 characters or fewer. Letters, digits and @/./+/-/_ only.</li>
                     </ul> {% endcomment %}
-                    <input type="text" name="username" class="input-text" placeholder="Username" required>
-            
-                    <label for="contact">Contact: </label>
-                    <input type="text" name="contact" class="input-text" maxlength=11 placeholder="Contact" required>
+                    <div class="input-container">
+                        <img src="/media/product_images/user_logo.png" alt="user">
+                        <input type="text" name="username" class="text-input" placeholder="150 characters or fewer." required><br>
+                    </div>
+                    <label for="contact">Contact:</label>
+
+                    <div class="input-container">
+                        <img src="/media/product_images/phone_logo.png" alt="user">
+                        <input type="text" name="contact" class="text-input" placeholder="Contact" required><br>
+                    </div>
+                    
                     <label for="password1">Password:</label>
                     {% comment %} <ul>
                         <li>Your password can’t be too similar to your other personal information.</li>
@@ -30,11 +37,18 @@
                         <li>Your password can’t be a commonly used password.</li>
                         <li>Your password can’t be entirely numeric.</li>
                     </ul> {% endcomment %}
-                    <input type="password" name="password1" class="input-text" placeholder="Password" required>
-            
+                    <div class="input-container">   
+                        <img src="/media/product_images/password_logo.png" alt="password">
+                        <input type="password" name="password1" class="text-input" placeholder="Your password must contain at least 8 characters" required><br>
+                    </div>            
                     <label for="password2">Password Confirmation: </label>
-                    <input type="password" name="password2" class="input-text" placeholder="Password" required>
-                    <button class="submit-form">Submit</button>
+                    <div class="input-container">   
+                        <img src="/media/product_images/password_logo.png" alt="password">
+                        <input type="password" name="password2" class="text-input" placeholder="Confirm Password" required><br>
+                    </div>
+                    <div class="submit-form">
+                        <button>Submit</button>
+                    </div>                
                 </form>
             </div>
         </div>
