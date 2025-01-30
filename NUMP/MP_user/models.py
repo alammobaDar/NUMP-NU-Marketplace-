@@ -19,8 +19,8 @@ class Product(models.Model):
     product_name = models.CharField(max_length=100)
     createdAt = models.DateField(auto_now_add=True)
     description = models.TextField()
-    price = models.FloatField()
-    stocks = models.IntegerField()
+    price = models.PositiveIntegerField()
+    stocks = models.PositiveIntegerField()
     slug = AutoSlugField(populate_from='product_name', unique_with='seller')
     image = models.ImageField(upload_to='product_images/', blank=True, null=True, default="No_Image_Available.jpg")
     seller = models.ForeignKey(
@@ -32,6 +32,29 @@ class Product(models.Model):
     def __str__(self):
             return self.product_name
     
-    def can_delete(self, user):
-         if user.get_username() == self.seller.user_name.username:
-            return True
+class Order(models.Model):
+    orderID = models.AutoField(primary_key=True)
+    product =models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(MarketplaceUser, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField()
+    total_price = models.DecimalField(max_digits=10, decimal_places=2)
+    orderedAt = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return f"{self.orderID}-{self.product}-{self.user}"
+    
+    def calculate_total_price(self):
+        self.total_price = (self.product.price) * (self.quantity)
+        self.save()
+
+class Cart(models.Model):
+    cartID = models.AutoField(primary_key=True)
+    user = models.ForeignKey(MarketplaceUser, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASsCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    added_at = models.DateTimeField(auto_now_add=True)
+
+    
+         
+

@@ -46,6 +46,7 @@ def new_product(request):
 def delete(request, id):
     product = Product.objects.get(product_id=id)
     product.delete()
-    
     return redirect('user:products')
+
+views
 

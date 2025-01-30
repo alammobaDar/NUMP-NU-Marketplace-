@@ -36,34 +36,47 @@
     <div id="editFormContainer" class="hidden-form">
         <div class="form-content">
             <span id="closeButton" class="close">&times;</span>
-                <form class="form-with-validation" method="POST" action="{% url 'user:product_info' product.slug %}" enctype="multipart/form-data">
-                {% csrf_token %}
+            <form class="form-with-validation" method="POST" action="{% url 'user:product_info' product.slug %}" enctype="multipart/form-data">
+                <div class="logo">
+                    <img src="/media/product_images/nu_logo.png" alt="NU LOGO">
+                    <h1 class="title">NU Marketplace</h1>
+                </div>
+                <div class="product-form">
+                    {% csrf_token %}
                     <br>
                     {% for error in form.non_field_errors %}
                         <p class="error">error</p>
                     {% endfor %}
-                    <div class="form-div">
-                        <label>Product Name: </label>
-                        {{ form.product_name}}
-                    </div><br><br>
-                    <div class="form-div">
-                        <label>Description: </label><br>
-                        {{ form.description}}
-                    </div><br><br>
-                    <div class="form-div">
-                        <label>Price: </label>
-                        {{ form.price}}
-                    </div><br><br>
-                    <div class="form-div">
-                        <label>Stocks: </label>
-                        {{ form.stocks}}
-                    </div><br><br>
-                    <div class="form-div">
-                        <label>Image: </label><br>
-                        <img src="{{ product.image.url}}" alt="{{product.title}}">
-                        {{ form.image}}
-                    </div><br>
-                <button class="submit-button" type="submit">Save Changes</button>
+                    <div class="upload-preview-image">
+                        <div class="image-input">
+                            {% comment %} <label>Image:</label> {% endcomment %}
+                            {{form.image}}
+                        </div>
+                        
+                        <div class="_image" id="previewContainer" style="margin-top: 10px;">
+                            <img id="previewImage" src="#" alt="Image Preview" style="display: none; max-width: 370px; max-height: 370px;">
+                        </div>
+                    </div>
+    
+                    <div class="text-input-container">
+                        <div class="input-container">
+                            {{form.product_name}}
+                        </div>
+    
+                        <div class="textarea-container">
+                            {{form.description}}
+                        </div>
+    
+                        
+                        <div class="numeric-input-container">
+                            {{form.price}}
+                            {{form.stocks}}
+                        </div>
+    
+                        <!-- Submit Button -->  
+                        <button class="submit-button" type="submit">Save Changes</button>        
+                    </div>
+                </div>
             </form>
         </div>
     </div>
