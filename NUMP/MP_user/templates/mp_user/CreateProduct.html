@@ -6,6 +6,10 @@
 
 {% block contents %}
     <div class="auth">
+        <div class="logo">
+            <img src="/media/product_images/nu_logo.png" alt="NU LOGO">
+            <h1 class="title">NU Marketplace</h1>
+        </div>
         <form class="form-with-validation" action="{% url 'user:new_product' %}" method="post" enctype="multipart/form-data">
             <div class="product-form">
                 {% csrf_token %}
@@ -22,21 +26,17 @@
 
                 <div class="text-input-container">
                     <div class="input-container">
-                        <label>Product Name: </label>
-                        <input type="text" name="product_name" maxlength="100" required id="id_product_name">
+                        <input type="text" name="product_name" maxlength="100" placeholder="Product Name" required id="id_product_name">
                     </div>
 
-                    <label>Description: </label>
                     <div class="textarea-container">
-                        <textarea name="description" cols="40" rows="10" required id="id_description"></textarea>
+                        <textarea name="description" cols="40" rows="40" placeholder="Description" required id="id_description"></textarea>
                     </div>
 
                     
                     <div class="numeric-input-container">
-                        <label>Price: </label>
-                        <input type="number" name="price" step="any" required id="id_price">
-                        <label>Stocks: </label>
-                        <input type="number" name="stocks" required id="id_stocks">
+                        <input type="number" name="price" step="any" placeholder="Price" required id="id_price">
+                        <input type="number" name="stocks" placeholder="Stocks" required id="id_stocks">
                     </div>
 
                     <!-- Submit Button -->
