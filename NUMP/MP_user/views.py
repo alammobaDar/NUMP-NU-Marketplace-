@@ -53,7 +53,7 @@ def delete(request, id):
 def order_page(request):
     user = get_object_or_404(MarketplaceUser, user_name=request.user)
     orders = Order.objects.filter(user=user)
-    return render(request, 'mp_user/Order.html', {'orders':orders})
+    return render(request, 'mp_user/Order.html', {'orders':orders, 'request':request})
 
 def cart_page(request):
     return render(request, 'mp_user/AddToCart.html')

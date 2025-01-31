@@ -22,21 +22,34 @@
                     {{ product.description }}
                 </p>
                 <div class="button-container">
-                    <button class="submit-button" id="buyButton">Buy now</button>
-                    <button class="submit-button" id="cartButton">Add to cart</button>
+                    <button class="submit-button" name="buyButton" id="buyButton">Buy now</button>
+                    <button class="submit-button" name="cartButton" id="cartButton">Add to cart</button>
                 </div>
             </div>
         </section>   
     </div>
-    <div id="formContainer" class="hidden-form">
+    <div id="buyformContainer" class="hidden-form">
         <div class="form-content">
-            <span id="closeButton" class="close">&times;</span>
+            <span id="buycloseButton" class="close">&times;</span>
             <form class="form-with-validation" method="POST" action="{% url 'product_info' product.slug %}" enctype="multipart/form-data">
                 {% csrf_token %}
+                <input type="hidden" name="action" value="buy_now">
+                <h1>buy</h1>
                 {{form}}
                 <button class="submit-button">Submit</button>
             </form>
         </div>
     </div>
-
+    <div id="cartformContainer" class="hidden-form">
+        <div class="form-content">
+            <span id="cartcloseButton" class="close">&times;</span>
+            <form class="form-with-validation" method="POST" action="{% url 'product_info' product.slug %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="add_to_cart">
+                <h1>cart</h1>
+                {{form}}
+                <button class="submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}

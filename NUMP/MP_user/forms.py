@@ -41,3 +41,9 @@ class BuyProduct(forms.ModelForm):
             'quantity'
         ]
 
+class CartProduct(forms.ModelForm):
+    class Meta:
+        model = Cart
+        fields = [
+            'quantity'
+        ]

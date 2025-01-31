@@ -1,13 +1,12 @@
-const editButton = document.getElementById("editButton");
-const formContainer = document.getElementById("formContainer");
-const closeButton = document.getElementById("closeButton");
-const buyButton = document.getElementById("buyButton");
-const cartButton = document.getElementById("cartButton");
-const fileInput = document.getElementById("id_image");
-const previewImage = document.getElementById("previewImage");
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", function(){
+    const editButton = document.getElementById("editButton");
+    const formContainer = document.getElementById("formContainer");
+    const closeButton = document.getElementById("closeButton");
         // Show the form when "Edit" button is clicked
     editButton.addEventListener("click", function () {
         formContainer.style.display = "flex";
@@ -28,31 +27,55 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+    const buyformContainer = document.getElementById("buyformContainer");
+    const buycloseButton = document.getElementById("buycloseButton");
+    const buyButton = document.getElementById("buyButton");
 
+    
     buyButton.addEventListener("click", function () {
-        formContainer.style.display = "flex";
-    });
-
-    cartButton.addEventListener("click", function () {
-        formContainer.style.display = "flex";
+        buyformContainer.style.display = "flex";
     });
 
         // Hide the form when the close button is clicked
-    closeButton.addEventListener("click", function () {
-        formContainer.style.display = "none";
+    buycloseButton.addEventListener("click", function () {
+        buyformContainer.style.display = "none";
     });
 
         // Optionally, hide the form when clicking outside the form content
-    formContainer.addEventListener("click", function (event) {
-        if (event.target === formContainer) {
-            formContainer.style.display = "none";
+    buyformContainer.addEventListener("click", function (event) {
+        if (event.target === buyformContainer) {
+            buyformContainer.style.display = "none";
         };
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const cartformContainer = document.getElementById("cartformContainer");
+    const cartcloseButton = document.getElementById("cartcloseButton");
+    const cartButton = document.getElementById("cartButton");
 
+
+    cartButton.addEventListener("click", function () {
+        cartformContainer.style.display = "flex";
+    });
+
+        // Hide the form when the close button is clicked
+    cartcloseButton.addEventListener("click", function () {
+        cartformContainer.style.display = "none";
+    });
+
+        // Optionally, hide the form when clicking outside the form content
+    cartformContainer.addEventListener("click", function (event) {
+        if (event.target === cartformContainer) {
+            cartformContainer.style.display = "none";
+        };
+    });
+});
 
 document.addEventListener("DOMContentLoaded", function (){
+    const fileInput = document.getElementById("id_image");
+    const previewImage = document.getElementById("previewImage");
+
     fileInput.addEventListener("change", (event) => {
         const file = event.target.files[0]; // Get the selected file
         if (file) {
