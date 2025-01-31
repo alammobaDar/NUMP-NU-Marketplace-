@@ -1,34 +1,39 @@
 
-document.addEventListener( "DOMContentLoaded", function() {
-    const editButton = document.getElementById("editButton");
-    const editFormContainer = document.getElementById("editFormContainer");
-    const closeButton = document.getElementById("closeButton");
+
+const editButton = document.getElementById("editButton");
+const formContainer = document.getElementById("formContainer");
+const closeButton = document.getElementById("closeButton");
+const fileInput = document.getElementById("id_image");
+const previewImage = document.getElementById("previewImage");
+const buyButton = document.getElementById("buyButton");
+const cartButton = document.getElementById("cartButton");
+
 
     // Show the form when "Edit" button is clicked
-    editButton.addEventListener("click", function () {
-        editFormContainer.style.display = "flex";
-        console.log("Js loaded")
-    });
-
-    // Hide the form when the close button is clicked
-    closeButton.addEventListener("click", function () {
-        editFormContainer.style.display = "none";
-    });
-
-    // Optionally, hide the form when clicking outside the form content
-    editFormContainer.addEventListener("click", function (event) {
-        if (event.target === editFormContainer) {
-            editFormContainer.style.display = "none";
-        }
-    });
-
-   
-
+editButton.addEventListener("click", function () {
+    formContainer.style.display = "flex";
     console.log("Js loaded")
 });
 
-const fileInput = document.getElementById("id_image");
-const previewImage = document.getElementById("previewImage");
+buyButton.addEventListener("click", function () {
+    formContainer.style.display = "flex";
+});
+
+cartButton.addEventListener("click", function () {
+    formContainer.style.display = "flex";
+});
+
+    // Hide the form when the close button is clicked
+closeButton.addEventListener("click", function () {
+    formContainer.style.display = "none";
+});
+
+    // Optionally, hide the form when clicking outside the form content
+formContainer.addEventListener("click", function (event) {
+    if (event.target === formContainer) {
+        formContainer.style.display = "none";
+    }
+});
 
 fileInput.addEventListener("change", (event) => {
   const file = event.target.files[0]; // Get the selected file
@@ -47,4 +52,4 @@ fileInput.addEventListener("change", (event) => {
   }
 });
 
-    
+  

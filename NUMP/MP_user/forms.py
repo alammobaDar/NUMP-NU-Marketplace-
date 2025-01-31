@@ -1,12 +1,13 @@
 from pyexpat import model
 from django import forms
 from . import models
+from .models import Order, Cart, Product
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 class CreateProduct(forms.ModelForm):
     class Meta:
-        model = models.Product
+        model = Product
         fields = [
             'product_name',
             'description', 
@@ -30,3 +31,13 @@ class SignupForms(UserCreationForm):
         fields = [
             'username', 'contact', 'password1', 'password2'
         ]
+
+
+class BuyProduct(forms.ModelForm):
+    class Meta:
+        model = Order
+
+        fields = [
+            'quantity'
+        ]
+

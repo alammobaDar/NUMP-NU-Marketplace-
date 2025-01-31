@@ -48,5 +48,9 @@ def delete(request, id):
     product.delete()
     return redirect('user:products')
 
+def order_page(request):
+    return render(request, 'mp_user/Order.html')
 
+def cart_page(request):
+    return render(request, 'mp_user/AddToCart.html')
 

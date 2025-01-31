@@ -5,27 +5,37 @@
 {% endblock %}
 
 {% block contents %}
-<div class="info-container">
-    <section>
-        <div class="image-container-info">
-            <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
-        </div>
-        <div class="info">
-            <h1 class="product-name">{{ product.product_name }}</h1>
-            <p>by {{product.seller}}</p>
-            <div class="price-stocks">
-                <p>Price: <span style="font-weight:bold">₱{{ product.price }}</span></p>
-                <p>Stocks: <span style="font-weight:bold">{{ product.stocks }}</span></p>
+    <div class="info-container">
+        <section>
+            <div class="image-container-info">
+                <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
             </div>
-            <p class="product-description">
-                <span style="font-weight:bold">Description:</span><br>
-                {{ product.description }}
-            </p>
-            <div class="button-container">
-                <button class="submit-button">Buy now</button>
-                <button class="submit-button">Add to cart</button>
+            <div class="info">
+                <h1 class="product-name">{{ product.product_name }}</h1>
+                <p>by {{product.seller}}</p>
+                <div class="price-stocks">
+                    <p>Price: <span style="font-weight:bold">₱{{ product.price }}</span></p>
+                    <p>Stocks: <span style="font-weight:bold">{{ product.stocks }}</span></p>
+                </div>
+                <p class="product-description">
+                    <span style="font-weight:bold">Description:</span><br>
+                    {{ product.description }}
+                </p>
+                <div class="button-container">
+                    <button class="submit-button" id="buyButton">Buy now</button>
+                    <button class="submit-button" id="cartButton">Add to cart</button>
+                </div>
             </div>
+        </section>   
+    </div>
+    <div id="formContainer" class="hidden-form">
+        <div class="form-content">
+            <span id="closeButton" class="close">&times;</span>
+            <form class="form-with-validation" method="POST" action="{% url 'user:product_info' product.slug %}" enctype="multipart/form-data">
+            
+            
+            </form>
         </div>
-    </section>     
-</div>
+    </div>
+
 {% endblock %}

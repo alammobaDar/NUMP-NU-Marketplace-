@@ -20,6 +20,8 @@
                 <a href="{% url "user:products" %}">Products</a>
                 <a href="{% url "user:mywallet" %}">My Wallet</a>
                 <a href="{% url "user:profile" %}">Profile</a>
+                <a href="{% url "user:order" %}">Order</a>
+                <a href="{% url "user:cart" %}">Cart</a>
                 <form class="signout" action="{% url "auth:signout" %}" method="post">
                     {% csrf_token %}
                     <div class="signout-container">
