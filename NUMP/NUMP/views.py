@@ -19,7 +19,6 @@ def product_info(request, slug):
             order.user = mp_user
             order.total_price = order.calculate_total_price()
             order.save()
-            
             return redirect("user:order")
     else:
         form = BuyProduct()  

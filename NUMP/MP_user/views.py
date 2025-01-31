@@ -1,5 +1,6 @@
 
 from itertools import product
+from webbrowser import get
 from django import forms
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import MarketplaceUser, Order, Product
@@ -50,7 +51,9 @@ def delete(request, id):
     return redirect('user:products')
 
 def order_page(request):
-    return render(request, 'mp_user/Order.html')
+    user = get_object_or_404(MarketplaceUser, user_name=request.user)
+    orders = Order.objects.filter(user=user)
+    return render(request, 'mp_user/Order.html', {'orders':orders})
 
 def cart_page(request):
     return render(request, 'mp_user/AddToCart.html')
