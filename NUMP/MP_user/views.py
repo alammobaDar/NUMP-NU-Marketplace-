@@ -3,7 +3,7 @@ from itertools import product
 from webbrowser import get
 from django import forms
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import MarketplaceUser, Order, Product
+from .models import Cart, MarketplaceUser, Order, Product
 from .forms import BuyProduct, CreateProduct
 
 
@@ -53,9 +53,11 @@ def delete(request, id):
 def order_page(request):
     user = get_object_or_404(MarketplaceUser, user_name=request.user)
     orders = Order.objects.filter(user=user)
-    return render(request, 'mp_user/Order.html', {'orders':orders, 'request':request})
+    return render(request, 'mp_user/Order.html', {'orders':orders})
 
 def cart_page(request):
-    return render(request, 'mp_user/AddToCart.html')
+    user = get_object_or_404(MarketplaceUser, user_name=request.user)
+    carts = Cart.objects.filter(user=user)
+    return render(request, 'mp_user/AddToCart.html', {'carts':carts})
 
 

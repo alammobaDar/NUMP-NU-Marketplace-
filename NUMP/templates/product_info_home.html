@@ -35,7 +35,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="action" value="buy_now">
                 <h1>buy</h1>
-                {{form}}
+                {{buy_form}}
                 <button class="submit-button">Submit</button>
             </form>
         </div>
@@ -47,7 +47,7 @@
                 {% csrf_token %}
                 <input type="hidden" name="action" value="add_to_cart">
                 <h1>cart</h1>
-                {{form}}
+                {{cart_form}}
                 <button class="submit-button">Submit</button>
             </form>
         </div>

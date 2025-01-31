@@ -5,12 +5,13 @@
 {% endblock %}
 
 {% block contents %}
-    {% for order in orders %}
-        
-        {{order.product.image.url}}
-        {{order.product.price}}
-        {{order.product}}
-        {{order.quantity}}
-        {{order.total_price}}
-    {% endfor %}
+    <div>
+        {% for order in orders %}
+            {{order.product.image.url}}
+            {{order.product.price}}
+            {{order.product}}
+            {{order.quantity}}
+            {{order.total_price}}
+        {% endfor %}
+    </div>
 {% endblock  %}

@@ -6,4 +6,13 @@
 
 {% block contents %}
     Add To Cart
+    <div>
+        {% for cart in carts %}
+            {{cart.product.image.url}}
+            {{cart.product.price}}
+            {{cart.product}}
+            {{cart.quantity}}
+            {{cart.total_price}}
+        {% endfor %}
+    </div>
 {% endblock  %}
