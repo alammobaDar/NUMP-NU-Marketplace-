@@ -48,5 +48,5 @@ def delete(request, id):
     product.delete()
     return redirect('user:products')
 
-views
+
 
