@@ -9,30 +9,38 @@
 </head>
 <body>
     <header>
-        <nav class="nav-bar">
-            <div class="logo">
-                <img src="/media/product_images/nu_logo.png" alt="NU LOGO">
-                <a href="{% url "home" %}">
-                    <h1 class="nav-title">NU Marketplace</h1>
-                </a>
+        <nav>
+            <div class="nav-bar">
+                <div class="logo">
+                    <img src="/media/product_images/nu_logo.png" alt="NU LOGO">
+                    <a href="{% url "home" %}">
+                        <h1 class="nav-title">NU Marketplace</h1>
+                    </a>
+                </div>
+                <div class="links">
+                    {% if user.is_authenticated %}
+                        <a href="{% url "user:products" %}">Products</a>
+                        <a href="{% url "user:mywallet" %}">My Wallet</a>
+                        <a href="{% url "user:profile" %}">Profile</a>
+                        <a href="{% url "user:order" %}">Order</a>
+                        <a href="{% url "user:cart" %}">Cart</a>
+                        <form class="signout" action="{% url "auth:signout" %}" method="post">
+                            {% csrf_token %}
+                            <div class="signout-container">
+                                <button class="submit-button">Sign out</button>   
+                            </div>
+                        </form>  
+                    
+                    {% else %}
+                        <a href="{% url "auth:login"%}">Login</a>
+                        <a href="{% url "auth:register" %}">Register</a>
+                    {% endif %}
+                </div>
             </div>
-            {% if user.is_authenticated %}
-                <a href="{% url "user:products" %}">Products</a>
-                <a href="{% url "user:mywallet" %}">My Wallet</a>
-                <a href="{% url "user:profile" %}">Profile</a>
-                <a href="{% url "user:order" %}">Order</a>
-                <a href="{% url "user:cart" %}">Cart</a>
-                <form class="signout" action="{% url "auth:signout" %}" method="post">
-                    {% csrf_token %}
-                    <div class="signout-container">
-                        <button class="submit-button">Sign out</button>   
-                    </div>
-                </form>  
-            {% else %}
-                <a href="{% url "auth:login"%}">Login</a>
-                <a href="{% url "auth:register" %}">Register</a>
-            {% endif %}
-        
+            <div class="user">
+                <img src="/media/product_images/user_logo.png" alt="user">
+                <h1>{{user}}</h1>
+            </div>
         </nav>
     </header>
     <main>
