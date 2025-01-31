@@ -31,13 +31,9 @@
     <div id="formContainer" class="hidden-form">
         <div class="form-content">
             <span id="closeButton" class="close">&times;</span>
-            <form class="form-with-validation" method="POST" action="{% url 'user:buy_product' product.product_id %}" enctype="multipart/form-data">
+            <form class="form-with-validation" method="POST" action="{% url 'product_info' product.slug %}" enctype="multipart/form-data">
                 {% csrf_token %}
-                {% if form %}
-                    {{form}}
-                {% else %}
-                    <p>form not found.</p>
-                {% endif %}
+                {{form}}
                 <button class="submit-button">Submit</button>
             </form>
         </div>
