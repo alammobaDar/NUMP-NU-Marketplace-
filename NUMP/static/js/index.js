@@ -3,7 +3,8 @@ const formContainer = document.getElementById("formContainer");
 const closeButton = document.getElementById("closeButton");
 const buyButton = document.getElementById("buyButton");
 const cartButton = document.getElementById("cartButton");
-
+const fileInput = document.getElementById("id_image");
+const previewImage = document.getElementById("previewImage");
 
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -51,25 +52,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-const fileInput = document.getElementById("id_image");
-const previewImage = document.getElementById("previewImage");
-
-
-fileInput.addEventListener("change", (event) => {
-  const file = event.target.files[0]; // Get the selected file
-  if (file) {
-    const reader = new FileReader(); // Create a FileReader to read the file
-
-    // When the file is loaded, set the preview image source
-    reader.onload = (e) => {
-      previewImage.style.display = "block"; // Make the image visible
-      previewImage.src = e.target.result;  // Set the image source to the file data
-    };
-
-    reader.readAsDataURL(file); // Read the file as a Data URL (base64)
-  } else {
-    previewImage.style.display = "none"; // Hide the image if no file is selected
-  }
+document.addEventListener("DOMContentLoaded", function (){
+    fileInput.addEventListener("change", (event) => {
+        const file = event.target.files[0]; // Get the selected file
+        if (file) {
+        const reader = new FileReader(); // Create a FileReader to read the file
+    
+        // When the file is loaded, set the preview image source
+        reader.onload = (e) => {
+            previewImage.style.display = "block"; // Make the image visible
+            previewImage.src = e.target.result;  // Set the image source to the file data
+        };
+    
+        reader.readAsDataURL(file); // Read the file as a Data URL (base64)
+        } else {
+        previewImage.style.display = "none"; // Hide the image if no file is selected
+        }
+    });   
 });
+
 

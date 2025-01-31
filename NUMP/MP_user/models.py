@@ -46,8 +46,8 @@ class Order(models.Model):
     
     def calculate_total_price(self):
         self.total_price = (self.product.price) * (self.quantity)
-        self.save()
-
+        return self.total_price
+    
 class Cart(models.Model):
     cartID = models.AutoField(primary_key=True)
     user = models.ForeignKey(MarketplaceUser, on_delete=models.CASCADE)

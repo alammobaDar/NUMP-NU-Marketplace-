@@ -1,8 +1,9 @@
 
+from itertools import product
 from django import forms
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import MarketplaceUser, Product
-from .forms import CreateProduct
+from .models import MarketplaceUser, Order, Product
+from .forms import BuyProduct, CreateProduct
 
 
 # Create your views here.
@@ -53,4 +54,5 @@ def order_page(request):
 
 def cart_page(request):
     return render(request, 'mp_user/AddToCart.html')
+
 

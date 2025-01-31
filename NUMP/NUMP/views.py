@@ -7,4 +7,6 @@ def home(request):
 
 def product_info(request, slug):
     product = get_object_or_404(Product, slug=slug)
+
     return render(request, 'product_info_home.html', {'product': product})
+
