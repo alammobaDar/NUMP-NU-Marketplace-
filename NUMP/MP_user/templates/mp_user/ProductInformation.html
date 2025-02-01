@@ -8,20 +8,25 @@
 
     <div class="info-container">
         <section>
-            <div class="image-container-info">
-                <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
+            <div class="image-container-info" name="border">
+                <img src="{{ product.image.url }}" alt="{{ product.title }}"> 
             </div>
-            <div class="info">
-                <h1 class="product-name">{{ product.product_name }}</h1>
+            <div class="info" name="border">
+                <div class="product-name-container">
+                    <h1 class="product-name">{{ product.product_name }}</h1>
+                </div>
                 <p>by {{product.seller}}</p>
                 <div class="price-stocks">
                     <p>Price: <span style="font-weight:bold">₱{{ product.price }}</span></p>
                     <p>Stocks: <span style="font-weight:bold">{{ product.stocks }}</span></p>
                 </div>
-                <p class="product-description">
-                    <span style="font-weight:bold;">Description:</span><br><br>
-                    <span style="padding:15px;">{{ product.description }}</span>
-                </p>
+                <div name="border">
+                    <p class="product-description" >
+                        <span style="font-weight:bold;">Description:</span><br><br>
+                        <span style="padding:15px;">{{ product.description }}</span>
+                    </p>
+                </div>
+                
                 <div class="button-container">
                     <a href="{% url "user:delete" product.product_id %}">
                         <button class="submit-button" >Delete</button>

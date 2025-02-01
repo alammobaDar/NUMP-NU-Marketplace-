@@ -11,9 +11,9 @@
     {% for item in product %}
     <section>
         <a href="{% url "user:product_info" slug=item.slug %}">    
-            <div class="product-display">
+            <div name="border">
                 <article class="item-product-display">
-                    <div class="image-container">
+                    <div class="image-container" name="border">
                         <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
                     </div>
                     <h2>{{ item.product_name }}</h2>
@@ -27,7 +27,7 @@
     </section>
     {% endfor %}
     <a href="{% url "user:new_product" %}">
-        <div class="new-product-display">
+        <div class="new-product-display" name="border">
             <h1>+</h1>
         </div>
     </a>

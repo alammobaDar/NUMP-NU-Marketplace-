@@ -8,15 +8,23 @@
     <h1 style="text-align: center; color: #888;">Order</h1>
     <div class="order-container">
         {% for order in orders %}    
-            <div class="indie-order-containers">
-                <div class="order-image-container">
+            <div class="indie-order-containers" name="border">
+                <div class="order-image-container" name="border">
                     <img src="{{order.product.image.url}}" alt="{{order.product}}"> 
                 </div>
-                {% comment %} <img src="{{order.product.image.url}}" alt="{{order.product}}"> {% endcomment %}
-                {{order.product.price}}
-                {{order.product}}
-                {{order.quantity}}
-                {{order.total_price}}
+                <div class="order-info-container" name="border">
+                    <h1 class="product-name">{{order.product}}</h1>
+                    
+                    <div class="price-stocks">
+                        <p>Price: <span style="font-weight:bold">₱{{ order.product.price }}</span></p>
+                        <p>Quantity: <span style="font-weight:bold">{{ order.quantity }}</span></p>
+                    </div>
+
+                    <div class="price-stocks">
+                        <p>Total Price: <span style="font-weight:bold">₱{{ order.total_price }}</span></p>
+                    </div>
+                </div>
+                
             </div>
         {% endfor %}
     </div>

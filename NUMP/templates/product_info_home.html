@@ -7,20 +7,23 @@
 {% block contents %}
     <div class="info-container">
         <section>
-            <div class="image-container-info">
-                <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
+            <div class="image-container-info" name="border">
+                <img src="{{ product.image.url }}" alt="{{ product.title }}"> 
             </div>
-            <div class="info">
+            <div class="info" name="border">
                 <h1 class="product-name">{{ product.product_name }}</h1>
                 <p>by {{product.seller}}</p>
                 <div class="price-stocks">
                     <p>Price: <span style="font-weight:bold">₱{{ product.price }}</span></p>
                     <p>Stocks: <span style="font-weight:bold">{{ product.stocks }}</span></p>
                 </div>
-                <p class="product-description">
-                    <span style="font-weight:bold">Description:</span><br>
-                    {{ product.description }}
-                </p>
+                <div name="border">
+                    <p class="product-description">
+                        <span style="font-weight:bold">Description:</span><br>
+                        {{ product.description }}
+                    </p>
+                </div>
+
                 <div class="button-container">
                     <button class="submit-button" name="buyButton" id="buyButton">Buy now</button>
                     <button class="submit-button" name="cartButton" id="cartButton">Add to cart</button>
@@ -40,8 +43,8 @@
                 </div>
                 <div class="info-container">
                     <section>
-                        <div class="image-container-info">
-                            <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
+                        <div class="image-container-form" name="border">
+                            <img src="{{ product.image.url }}" alt="{{ product.title }}"> 
                         </div>
                         <div class="info">
                             <h1 class="product-name">{{ product.product_name }}</h1>

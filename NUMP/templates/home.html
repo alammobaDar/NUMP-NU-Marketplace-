@@ -8,9 +8,9 @@
     <div class="container" >
     {% for item in product %}
         <a href="{% url "product_info" slug=item.slug %}">    
-            <div class="product-display">
+            <div name="border">
                 <article class="item-product-display">
-                    <div class="image-container">
+                    <div class="image-container" name="border">
                         <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
                     </div>
                     <h2>{{ item.product_name }}</h2>
