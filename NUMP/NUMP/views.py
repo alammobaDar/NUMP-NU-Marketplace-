@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from MP_user.models import Product, MarketplaceUser, Order, Cart
 from MP_user.forms import BuyProduct, CartProduct
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):  
@@ -24,6 +25,7 @@ def product_info(request, slug):
         form = BuyProduct()  
     return render(request, 'product_info_home.html', {'form':form, 'product': product})
 
+@login_required(login_url='userAuth/login/')
 def product_info(request, slug):
     product = get_object_or_404(Product, slug=slug)
     mp_user = get_object_or_404(MarketplaceUser, user_name =request.user)

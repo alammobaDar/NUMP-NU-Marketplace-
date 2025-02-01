@@ -15,17 +15,6 @@ header {
     height: fit-content;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
-nav .links{
-    background-color: #1E3A8A; /* Deep blue */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    height: 70px;
-    gap: 20px;
-    }
-
 /* Logo styling */
 .logo {
     display: flex;
@@ -63,8 +52,18 @@ header nav{
 header nav .nav-bar{
     display: flex;  
     align-items: center;
-    gap: 20px;
 }
+
+nav .links{
+    background-color: #1E3A8A; /* Deep blue */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 70px;
+    gap: 20px;
+    }
 
 header nav a {
     color: white;

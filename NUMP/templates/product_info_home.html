@@ -34,9 +34,28 @@
             <form class="form-with-validation" method="POST" action="{% url 'product_info' product.slug %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="buy_now">
-                <h1>buy</h1>
-                {{buy_form}}
-                <button class="submit-button">Submit</button>
+                <div class="info-container">
+                    <section>
+                        <div class="image-container-info">
+                            <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
+                        </div>
+                        <div class="info">
+                            <h1 class="product-name">{{ product.product_name }}</h1>
+                            <p>by {{product.seller}}</p>
+                            <div class="price-stocks">
+                                <p>Price: <span style="font-weight:bold">₱{{ product.price }}</span></p>
+                                <p>Stocks: <span style="font-weight:bold">{{ product.stocks }}</span></p>
+                            </div>
+                            <p class="product-description">
+                                <span style="font-weight:bold;">Description:</span><br><br>
+                                <span style="padding:15px;">{{ product.description }}</span>
+                            </p>
+                            <input class="input-container" type="number" name="quantity" placeholder="Quantity" min="0" required id="id_quantity">                            </div>
+                            <button class="submit-button">Submit</button>
+                        </div>
+                    </section>       
+                </div>
+                
             </form>
         </div>
     </div>
