@@ -5,13 +5,19 @@
 {% endblock %}
 
 {% block contents %}
-    <div>
-        {% for order in orders %}
-            {{order.product.image.url}}
-            {{order.product.price}}
-            {{order.product}}
-            {{order.quantity}}
-            {{order.total_price}}
+    <h1 style="text-align: center; color: #888;">Order</h1>
+    <div class="order-container">
+        {% for order in orders %}    
+            <div class="indie-order-containers">
+                <div class="order-image-container">
+                    <img src="{{order.product.image.url}}" alt="{{order.product}}"> 
+                </div>
+                {% comment %} <img src="{{order.product.image.url}}" alt="{{order.product}}"> {% endcomment %}
+                {{order.product.price}}
+                {{order.product}}
+                {{order.quantity}}
+                {{order.total_price}}
+            </div>
         {% endfor %}
     </div>
 {% endblock  %}

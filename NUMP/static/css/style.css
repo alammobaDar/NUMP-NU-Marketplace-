@@ -101,6 +101,7 @@ main {
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     overflow-y: scroll;
+    padding: 20px;
 }
 
 .container{
@@ -479,5 +480,40 @@ main {
 .text-input-container{
     display: grid;
     margin-left: 20px;
+    width: 100%;
+}
+
+
+.order-container{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 10px;
+    justify-content: center;
+}
+
+.order-container div{
+    border: 1px solid #3f3f3f;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: rgb(255, 252, 252);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+.order-container .indie-order-containers{
+    display: flex;
+    width: 80%;
+    height: 250px;
+    align-items: center;
+    
+}
+
+.order-image-container{
+    display: flex;
+    align-items: center;
+    width: 230px;
+    height: fit-content;
+}
+
+.order-image-container img{
     width: 100%;
 }
