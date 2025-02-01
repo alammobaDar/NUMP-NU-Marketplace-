@@ -41,22 +41,24 @@
                     <img src="/media/product_images/buy.png" alt="NU LOGO">
                     <h1 class="title">Buy Now</h1>
                 </div>
-                <div class="info-container">
+                <div class="info-container-form">
                     <section>
                         <div class="image-container-form" name="border">
                             <img src="{{ product.image.url }}" alt="{{ product.title }}"> 
                         </div>
-                        <div class="info">
+                        <div class="info" name="border">
                             <h1 class="product-name">{{ product.product_name }}</h1>
                             <p>by {{product.seller}}</p>
                             <div class="price-stocks">
                                 <p>Price: <span style="font-weight:bold">₱{{ product.price }}</span></p>
                                 <p>Stocks: <span style="font-weight:bold">{{ product.stocks }}</span></p>
                             </div>
-                            <p class="product-description">
-                                <span style="font-weight:bold;">Description:</span><br><br>
-                                <span style="padding:15px;">{{ product.description }}</span>
-                            </p>
+                            <div name="border">
+                                <p class="product-description">
+                                    <span style="font-weight:bold;">Description:</span><br><br>
+                                    <span style="padding:15px;">{{ product.description }}</span>
+                                </p>
+                            </div>
                             <div class="numeric-input-container">
                                 <input type="number" name="quantity" placeholder="Quantity" value="1" min="0" required id="id_quantity">                            
                             </div>
@@ -77,22 +79,25 @@
                     <img src="/media/product_images/shopping-cart.png" alt="NU LOGO">
                     <h1 class="title">Add to Cart</h1>
                 </div>
-                <div class="info-container">    
+                <div class="info-container-form">    
                     <section>
-                        <div class="image-container-info">
+                        <div class="image-container-form" name="border">
                             <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
                         </div>
-                        <div class="info">
+                        <div class="info"name="border">
                             <h1 class="product-name">{{ product.product_name }}</h1>
                             <p>by {{product.seller}}</p>
                             <div class="price-stocks">
                                 <p>Price: <span style="font-weight:bold">₱{{ product.price }}</span></p>
                                 <p>Stocks: <span style="font-weight:bold">{{ product.stocks }}</span></p>
                             </div>
-                            <p class="product-description">
-                                <span style="font-weight:bold;">Description:</span><br><br>
-                                <span style="padding:15px;">{{ product.description }}</span>
-                            </p>
+
+                            <div name="border">
+                                <p class="product-description">
+                                    <span style="font-weight:bold;">Description:</span><br><br>
+                                    <span style="padding:15px;">{{ product.description }}</span>
+                                </p>
+                            </div>
                             <div class="numeric-input-container">
                                 <input type="number" name="quantity" value="1" min="0" required id="id_quantity">
                             </div>
