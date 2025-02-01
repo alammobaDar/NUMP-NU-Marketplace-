@@ -34,6 +34,10 @@
             <form class="form-with-validation" method="POST" action="{% url 'product_info' product.slug %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="buy_now">
+                <div class="logo">
+                    <img src="/media/product_images/buy.png" alt="NU LOGO">
+                    <h1 class="title">Buy Now</h1>
+                </div>
                 <div class="info-container">
                     <section>
                         <div class="image-container-info">
@@ -50,12 +54,13 @@
                                 <span style="font-weight:bold;">Description:</span><br><br>
                                 <span style="padding:15px;">{{ product.description }}</span>
                             </p>
-                            <input class="input-container" type="number" name="quantity" placeholder="Quantity" min="0" required id="id_quantity">                            </div>
-                            <button class="submit-button">Submit</button>
+                            <div class="numeric-input-container">
+                                <input type="number" name="quantity" placeholder="Quantity" value="1" min="0" required id="id_quantity">                            
+                            </div>
                         </div>
-                    </section>       
-                </div>
-                
+                    </section>      
+                    <button class="submit-button">Place Order</button> 
+                </div>               
             </form>
         </div>
     </div>
@@ -65,9 +70,33 @@
             <form class="form-with-validation" method="POST" action="{% url 'product_info' product.slug %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="hidden" name="action" value="add_to_cart">
-                <h1>cart</h1>
-                {{cart_form}}
-                <button class="submit-button">Submit</button>
+                <div class="logo">
+                    <img src="/media/product_images/shopping-cart.png" alt="NU LOGO">
+                    <h1 class="title">Add to Cart</h1>
+                </div>
+                <div class="info-container">    
+                    <section>
+                        <div class="image-container-info">
+                            <img class="image" src="{{ product.image.url }}" alt="{{ product.title }}"> 
+                        </div>
+                        <div class="info">
+                            <h1 class="product-name">{{ product.product_name }}</h1>
+                            <p>by {{product.seller}}</p>
+                            <div class="price-stocks">
+                                <p>Price: <span style="font-weight:bold">₱{{ product.price }}</span></p>
+                                <p>Stocks: <span style="font-weight:bold">{{ product.stocks }}</span></p>
+                            </div>
+                            <p class="product-description">
+                                <span style="font-weight:bold;">Description:</span><br><br>
+                                <span style="padding:15px;">{{ product.description }}</span>
+                            </p>
+                            <div class="numeric-input-container">
+                                <input type="number" name="quantity" value="1" min="0" required id="id_quantity">
+                            </div>
+                        </div>
+                    </section>      
+                    <button class="submit-button">Place Order</button> 
+                </div>      
             </form>
         </div>
     </div>

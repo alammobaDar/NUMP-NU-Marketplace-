@@ -22,6 +22,7 @@ header {
     justify-content: center;
     background-color: #1E3A8A;
     border-radius: 8px;
+    padding: 10px;
 }
 
 .logo img {
@@ -168,11 +169,15 @@ main {
 
 .info-container{
     font-family: Helvetica, sans-serif;
+    display: flex;
+    flex-flow: column;
+
 }
 .info-container section{
     margin: 30px;
     display: flex;
     position: relative;
+    justify-content: center;
     gap: 15px;
 }
 
@@ -316,7 +321,6 @@ main {
 }
 
 .form-container{
-    display: flex;
     margin: 0px;
     justify-content: center;
 }
@@ -375,20 +379,17 @@ main {
 
 .numeric-input-container{
     display: flex;
-    justify-content: space-between;
-    padding-inline: 50px;
+    justify-content: space-around;
 }
 
 .numeric-input-container input{
     border: 1px solid #3f3f3f;
-    align-items: center;
     border-radius: 8px;
     padding: 8px;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
     margin-bottom: 15px;
-    justify-content: space-between;
 }
 
 
