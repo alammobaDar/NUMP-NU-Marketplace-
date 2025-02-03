@@ -30,7 +30,8 @@ def my_wallet_page(request):
     return render(request, 'mp_user/MyWallet.html')
 
 def profile_page(request):
-    return render(request, 'mp_user/Profile.html')
+    user_info = get_object_or_404(MarketplaceUser, user_name=request.user)
+    return render(request, 'mp_user/Profile.html', {'user_info':user_info})
 
 def new_product(request):
     if request.method == "POST":
@@ -56,7 +57,7 @@ def order_page(request):
     return render(request, 'mp_user/Order.html', {'orders':orders})
 
 def cart_page(request):
-    
+
     user = get_object_or_404(MarketplaceUser, user_name=request.user)
     carts = Cart.objects.filter(user=user)
     return render(request, 'mp_user/AddToCart.html', {'carts':carts})
