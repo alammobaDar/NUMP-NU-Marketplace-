@@ -8,12 +8,14 @@
     <div class="container" >
     {% for item in product %}
         <a href="{% url "product_info" slug=item.slug %}">    
-            <div name="border">
+            <div class="section" name="border">
                 <article class="item-product-display">
                     <div class="image-container" name="border">
                         <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
                     </div>
-                    <h2>{{ item.product_name }}</h2>
+                    <div class="product-name-container">
+                        <h2>{{ item.product_name }}</h2>
+                    </div>
                     <p class="product-description-text">{{ item.description }}</p>
                     <p>{{ item.price }}</p>
                     <p>{{ item.stocks }}</p>
