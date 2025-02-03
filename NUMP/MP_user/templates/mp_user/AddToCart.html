@@ -12,15 +12,17 @@
                 <div class="order-image-container" name="border">
                     <img src="{{cart.product.image.url}}" alt="{{cart.product}}"> 
                 </div>
-                <div class="order-info-container" name="border">
-                        <h1 class="product-name">{{cart.product}}</h1>
-                    
-                    <div class="price-stocks">
-                        <p>Price: <span style="font-weight:bold">₱{{ cart.product.price }}</span></p>
-                        <p>Quantity: <span style="font-weight:bold">{{ cart.quantity }}</span></p>
+                <a href="{% url "product_info" slug=cart.product.slug %}">    
+                    <div class="order-info-container" name="border">
+                            <h1 class="product-name">{{cart.product}}</h1>
+                        
+                        <div class="price-stocks">
+                            <p>Price: <span style="font-weight:bold">₱{{ cart.product.price }}</span></p>
+                            <p>Quantity: <span style="font-weight:bold">{{ cart.quantity }}</span></p>
+                        </div>
+                        <p><span style="color:gray; font-style:italic; justify-self:end">AddedAt: {{ cart.added_at}}</span></p>
                     </div>
-                    <p><span style="color:gray; font-style:italic; justify-self:end">AddedAt: {{ cart.added_at}}</span></p>
-                </div>
+                </a>
             </div>
         {% endfor %}
     </div>  

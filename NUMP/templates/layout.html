@@ -21,7 +21,6 @@
                     {% if user.is_authenticated %}
                         <a href="{% url "user:products" %}">Products</a>
                         <a href="{% url "user:mywallet" %}">My Wallet</a>
-                        <a href="{% url "user:profile" %}">Profile</a>
                         <a href="{% url "user:order" %}">Order</a>
                         <a href="{% url "user:cart" %}">Cart</a>
                         <form class="signout" action="{% url "auth:signout" %}" method="post">
@@ -39,7 +38,8 @@
             </div>
             <div class="user">
                 <img src="/media/product_images/user_logo.png" alt="user">
-                <h1>{{user}}</h1>
+                <a href="{% url "user:profile" %}"><h1>{{user}}</h1></a>
+
             </div>
         </nav>
     </header>

@@ -56,6 +56,7 @@ def order_page(request):
     return render(request, 'mp_user/Order.html', {'orders':orders})
 
 def cart_page(request):
+    
     user = get_object_or_404(MarketplaceUser, user_name=request.user)
     carts = Cart.objects.filter(user=user)
     return render(request, 'mp_user/AddToCart.html', {'carts':carts})

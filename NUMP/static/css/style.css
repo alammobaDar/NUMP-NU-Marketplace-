@@ -86,6 +86,14 @@ div[name="border"]{
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+
 .user{
     display: flex; 
     align-items: center;
@@ -525,7 +533,6 @@ main {
 
 .order-container .indie-order-containers{
     display: flex;
-    width: 80%;
     height: 250px;
     gap: 10px;
     align-items: center;
