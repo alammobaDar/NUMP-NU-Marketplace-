@@ -4,7 +4,7 @@ from webbrowser import get
 from django import forms
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Cart, MarketplaceUser, Order, Product
-from .forms import BuyProduct, CreateProduct
+from .forms import BuyProduct, CreateProduct, EditProfile
 
 
 # Create your views here.
@@ -31,7 +31,13 @@ def my_wallet_page(request):
 
 def profile_page(request):
     user_info = get_object_or_404(MarketplaceUser, user_name=request.user)
-    return render(request, 'mp_user/Profile.html', {'user_info':user_info})
+    if request.method == 'POST':
+        form = EditProfile(request.POST, request.FILES, instance=user_info)
+        if form.is_valid():
+            form.save()
+    else:
+        form = EditProfile()
+    return render(request, 'mp_user/Profile.html', {'user_info':user_info, 'form':form})
 
 def new_product(request):
     if request.method == "POST":

@@ -1,7 +1,7 @@
 from pyexpat import model
 from django import forms
 from . import models
-from .models import Order, Cart, Product
+from .models import MarketplaceUser, Order, Cart, Product
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -46,4 +46,12 @@ class CartProduct(forms.ModelForm):
         model = Cart
         fields = [
             'quantity'
+        ]
+
+class EditProfile(forms.ModelForm):
+    contact = forms.CharField()
+    class Meta:
+        model = MarketplaceUser
+        field = [
+            'username', 'contact', 'email', 'picture'
         ]
