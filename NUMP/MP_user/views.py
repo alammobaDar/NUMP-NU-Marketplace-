@@ -36,7 +36,7 @@ def profile_page(request):
         if form.is_valid():
             form.save()
     else:
-        form = EditProfile()
+        form = EditProfile(instance=user_info)
     return render(request, 'mp_user/Profile.html', {'user_info':user_info, 'form':form})
 
 def new_product(request):

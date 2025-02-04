@@ -53,5 +53,5 @@ class EditProfile(forms.ModelForm):
     class Meta:
         model = MarketplaceUser()
         fields = [
-            'user_name', 'contact', 'email', 'picture'
+            'contact', 'email', 'picture'
         ]
