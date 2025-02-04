@@ -51,7 +51,7 @@ class CartProduct(forms.ModelForm):
 class EditProfile(forms.ModelForm):
     contact = forms.CharField()
     class Meta:
-        model = MarketplaceUser
-        field = [
-            'username', 'contact', 'email', 'picture'
+        model = MarketplaceUser()
+        fields = [
+            'user_name', 'contact', 'email', 'picture'
         ]

@@ -12,10 +12,27 @@
         <div class="profile-info" name="border">
             <p><span style="font-weight:bold">Username: </span>{{user_info.user_name}}</p>
             <p><span style="font-weight:bold">Contact: </span>{{user_info.contact}}</p>
-            <p><span style="font-weight:bold">Email: </span>{{user_info.email}}</p>             
+            <p><span style="font-weight:bold">Email: </span>{{user_info.email}}</p>  
+            <button class="submit-button" id="editButton">Edit Profile</button>           
         </div>
-        </div>
+    </div>
 
-        <button class="submit-button" id="editButton">Edit Profile</button>
+        <div id="formContainer" class="hidden-form">
+            <div class="form-content">
+                <span id="closeButton" class="close">&times;</span>
+                <form class="form-with-validation" method="POST" action="{% url 'user:profile' %}" enctype="multipart/form-data">
+                    <div class="logo">
+                        <img src="/media/product_images/nu_logo.png" alt="NU LOGO">
+                        <h1 class="title">NU Marketplace</h1>
+                    </div>
+                    <div class="product-form">
+                        {% csrf_token %}
+                        {{form}}
+                    
+                        <button class="submit-button" type="submit">Save Changes</button>        
+                    </div>
+                </form>
+            </div>
+        </div>
     
 {% endblock %}
