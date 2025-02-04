@@ -15,6 +15,9 @@
                 <div class="form-container">
                     <form class="form-with-validation" action="{% url "auth:login" %}" method="post">
                         {% csrf_token %}
+                        {% if form.errors %}
+                            <p style="color:red">Username or the password might be incorrect</p>
+                        {% endif %}
                         <div class="input-container">
                             <img src="/media/product_images/user_logo.png" alt="user">
                             <input type="text" name="username" class="text-input" placeholder="Username" required><br>

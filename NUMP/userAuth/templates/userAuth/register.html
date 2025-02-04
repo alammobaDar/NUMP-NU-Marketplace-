@@ -11,19 +11,28 @@
                 <img src="/media/product_images/nu_logo.png" alt="NU LOGO">
                 <h1 class="title">NU Marketplace</h1>
             </div>
+            <br>
             <div class="form-container">
                 <form class="form-with-validation" action="{% url "auth:register" %}" method="post">
                     {% csrf_token %}
+                    {% if form.errors %}
+                        <p style="color:red">Username or the password might be incorrect</p>
+                    {% endif %}
                     <label for="username">Username: </label>
                     <div class="input-container">
                         <img src="/media/product_images/user_logo.png" alt="user">
                         <input type="text" name="username" class="text-input" placeholder="150 characters or fewer." required><br>
                     </div>
                     <label for="contact">Contact:</label>
-
                     <div class="input-container">
                         <img src="/media/product_images/phone_logo.png" alt="user">
                         <input type="text" name="contact" class="text-input" placeholder="Contact" required><br>
+                    </div>
+
+                    <label for="email">Email: </label>
+                    <div class="input-container">
+                        <img src="/media/email.png" alt="user">
+                        <input type="email" name="email" maxlength="254" placeholder="Email:" required>
                     </div>
                     
                     <label for="password1">Password:</label>

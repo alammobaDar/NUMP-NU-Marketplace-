@@ -1,3 +1,4 @@
+from ssl import Options
 from django.db import models
 from autoslug import AutoSlugField
 from django.contrib.auth.models import User
@@ -8,11 +9,14 @@ class MarketplaceUser(models.Model):
     user_id = models.AutoField(primary_key=True)
     user_name = models.OneToOneField(User, on_delete=models.CASCADE, related_name='mpuser')
     contact = models.CharField(max_length=11)  
+    email = models.EmailField(max_length=254)
     createdAt = models.DateField(auto_now_add=True)
+    picture = models.ImageField(upload_to='UserProfile/', blank=True, null=True, default="/No_profile.png")
     
 
     def __str__(self):
         return self.user_name.username
+    
 
 class Product(models.Model):
     product_id = models.AutoField(primary_key=True)
@@ -56,5 +60,11 @@ class Cart(models.Model):
     added_at = models.DateTimeField(auto_now_add=True)
 
     
-         
 
+class Wallet(models.Model):
+    user = models.ForeignKey(MarketplaceUser, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE) 
+    revenue = models.DecimalField(max_digits=20, decimal_places=2)       
+
+    def add_revenue(self):
+        self.revenue += self.order.total_price

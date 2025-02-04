@@ -14,8 +14,9 @@ def register(request):
             login(request, form.save())
             username = form.cleaned_data.get('username')
             contact = form.cleaned_data.get('contact')
+            email = form.cleaned_data.get('email')
             user = User.objects.get(username=username)
-            user_data = MarketplaceUser.objects.create(user_name=user, contact=contact)
+            user_data = MarketplaceUser.objects.create(user_name=user, contact=contact, email=email)
             user_data.save()
             return redirect("user:products")
     else:
