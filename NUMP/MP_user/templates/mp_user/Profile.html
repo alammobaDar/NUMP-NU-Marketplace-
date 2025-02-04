@@ -5,7 +5,9 @@
 {% endblock %}
 
 {% block contents %}
-    <img src="{{user_info.picture.url}}" alt="{{user_info.user_name}}">
+    <div class="profile-container">
+        <img src="{{user_info.picture.url}}" alt="{{user_info.user_name}}">        
+    </div>
     <h1> User: {{user_info.user_name}}</h1>
     <h1>Contact: {{user_info.contact}}</h1>
     <h1>email: {{user_info.email}} </h1>

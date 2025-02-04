@@ -16,7 +16,7 @@
                 <form class="form-with-validation" action="{% url "auth:register" %}" method="post">
                     {% csrf_token %}
                     {% if form.errors %}
-                        <p style="color:red">Username or the password might be incorrect</p>
+                        <p style="color:red">{{form.errors}}</p>
                     {% endif %}
                     <label for="username">Username: </label>
                     <div class="input-container">

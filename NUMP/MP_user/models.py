@@ -11,7 +11,7 @@ class MarketplaceUser(models.Model):
     contact = models.CharField(max_length=11)  
     email = models.EmailField(max_length=254)
     createdAt = models.DateField(auto_now_add=True)
-    picture = models.ImageField(upload_to='UserProfile/', blank=True, null=True, default="/No_profile.png")
+    picture = models.ImageField(upload_to='UserProfile/', blank=True, null=True, default="No_profile.png")
     
 
     def __str__(self):
