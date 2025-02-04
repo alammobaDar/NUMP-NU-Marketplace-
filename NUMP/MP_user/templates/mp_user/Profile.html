@@ -6,9 +6,16 @@
 
 {% block contents %}
     <div class="profile-container">
-        <img src="{{user_info.picture.url}}" alt="{{user_info.user_name}}">        
-    </div>
-    <h1> User: {{user_info.user_name}}</h1>
-    <h1>Contact: {{user_info.contact}}</h1>
-    <h1>email: {{user_info.email}} </h1>
+        <div class="image-profile">
+            <img src="{{user_info.picture.url}}" alt="{{user_info.user_name}}">   
+        </div>
+        <div class="profile-info" name="border">
+            <p><span style="font-weight:bold">Username: </span>{{user_info.user_name}}</p>
+            <p><span style="font-weight:bold">Contact: </span>{{user_info.contact}}</p>
+            <p><span style="font-weight:bold">Email: </span>{{user_info.email}}</p>             
+        </div>
+        </div>
+
+        <button>Edit Profile</button>
+    
 {% endblock %}
