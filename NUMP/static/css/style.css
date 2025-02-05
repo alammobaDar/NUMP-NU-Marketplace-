@@ -608,3 +608,21 @@ main {
     width: 100%;
     height: fit-content;
 }
+
+.wallet-container{
+    padding: 20px;
+    width: 100%;
+    height: fit-content;
+}
+.revenue{
+    display: flex;
+    justify-content: center;
+    color:#FFD700;
+    font-size: 3.5rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.wallet-container h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+

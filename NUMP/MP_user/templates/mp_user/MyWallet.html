@@ -5,6 +5,10 @@
 {% endblock %}
 
 {% block contents %}
-    <h1>My Wallet</h1>
-    <h1>{{mp_user.revenue}}</h1>
+    <div class="wallet-container" name="border">
+        <h2>My Wallet:</h2>
+        <div class="revenue" name="border">
+            <h1>₱{{mp_user.revenue}}</h1>
+        </div>
+    </div>
 {% endblock %}
