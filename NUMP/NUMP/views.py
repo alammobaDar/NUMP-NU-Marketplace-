@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from MP_user.models import Product, MarketplaceUser, Order, Cart, Wallet
+from MP_user.models import Product, MarketplaceUser, Order, Cart
 from MP_user.forms import BuyProduct, CartProduct
 from django.contrib.auth.decorators import login_required
 
@@ -43,8 +43,8 @@ def product_info(request, slug):
                 order.user = mp_user
                 order.total_price = order.calculate_total_price()
                 order.save()
-                seller_wallet, created = Wallet.objects.get_or_create(user=order.product.seller, product=order.product)
-                seller_wallet.add_revenue(order.total_price)
+                # seller_wallet, created = Wallet.objects.get_or_create(user=order.product.seller, product=order.product)
+                # seller_wallet.add_revenue(order.total_price)
                 return redirect("user:order")
             
         if action == "add_to_cart":

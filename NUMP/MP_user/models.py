@@ -11,6 +11,11 @@ class MarketplaceUser(models.Model):
     email = models.EmailField(max_length=254)
     createdAt = models.DateField(auto_now_add=True)
     picture = models.ImageField(upload_to='UserProfile/', blank=True, null=True, default="No_profile.png")
+    revenue = models.DecimalField(max_digits=20, decimal_places=2, default=0)       
+
+    def add_revenue(self, amount):
+        self.revenue += amount
+        self.save()
      
 
     def __str__(self):
@@ -58,11 +63,3 @@ class Cart(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     added_at = models.DateTimeField(auto_now_add=True)
 
-class Wallet(models.Model):
-    user = models.ForeignKey(MarketplaceUser, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE) 
-    revenue = models.DecimalField(max_digits=20, decimal_places=2, default=0)       
-
-    def add_revenue(self, amount):
-        self.revenue += amount
-        self.save()

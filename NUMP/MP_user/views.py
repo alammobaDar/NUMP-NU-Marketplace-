@@ -1,9 +1,5 @@
-
-from itertools import product
-from webbrowser import get
-from django import forms
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Cart, MarketplaceUser, Order, Product, Wallet
+from .models import Cart, MarketplaceUser, Order, Product
 from .forms import CreateProduct, EditProfile
 
 
@@ -27,10 +23,9 @@ def product_info_page(request, slug):
     return render(request, 'mp_user/ProductInformation.html', {'form':form, 'product':product})
 
 def my_wallet_page(request):
-    user = get_object_or_404(MarketplaceUser, user_name=request.user)
-    revenue = get_object_or_404(Wallet, user=user)
+    mp_user = get_object_or_404(MarketplaceUser, user_name=request.user)
     
-    return render(request, 'mp_user/MyWallet.html', {'revenue':revenue})
+    return render(request, 'mp_user/MyWallet.html', {'mp_user':mp_user})
 
 def profile_page(request):
     user_info = get_object_or_404(MarketplaceUser, user_name=request.user)
