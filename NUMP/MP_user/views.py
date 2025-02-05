@@ -27,10 +27,10 @@ def product_info_page(request, slug):
     return render(request, 'mp_user/ProductInformation.html', {'form':form, 'product':product})
 
 def my_wallet_page(request):
-    user_ = get_object_or_404(MarketplaceUser, user_name=request.user)
-    revenue = get_object_or_404(Wallet, user=user_)
+    user = get_object_or_404(MarketplaceUser, user_name=request.user)
+    revenue = get_object_or_404(Wallet, user=user)
     
-    return render(request, 'mp_user/MyWallet.html', {'user_':user_})
+    return render(request, 'mp_user/MyWallet.html', {'revenue':revenue})
 
 def profile_page(request):
     user_info = get_object_or_404(MarketplaceUser, user_name=request.user)
