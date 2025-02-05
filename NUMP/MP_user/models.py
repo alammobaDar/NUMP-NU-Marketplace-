@@ -1,4 +1,3 @@
-from ssl import Options
 from django.db import models
 from autoslug import AutoSlugField
 from django.contrib.auth.models import User
@@ -61,8 +60,9 @@ class Cart(models.Model):
 
 class Wallet(models.Model):
     user = models.ForeignKey(MarketplaceUser, on_delete=models.CASCADE)
-    order = models.ForeignKey(Order, on_delete=models.CASCADE) 
+    product = models.ForeignKey(Product, on_delete=models.CASCADE) 
     revenue = models.DecimalField(max_digits=20, decimal_places=2, default=0)       
 
-    def add_revenue(self):
-        self.revenue += self.order.total_price
+    def add_revenue(self, amount):
+        self.revenue += amount
+        self.save()
