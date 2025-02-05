@@ -7,22 +7,44 @@
 {% block contents %}
     <div class="container" >
     {% for item in product %}
-        <a href="{% url "product_info" slug=item.slug %}">    
-            <div class="section" name="border">
-                <article class="item-product-display">
-                    <div class="image-container" name="border">
-                        <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
+        {% if item.stocks != 0 %}
+            <a href="{% url "product_info" slug=item.slug %}">    
+                <div class="section" name="border">
+                    <article class="item-product-display">
+                        <div class="image-container" name="border">
+                            <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
+                        </div>
+                        <div class="product-name-container">
+                            <h2>{{ item.product_name }}</h2>
+                        </div>
+                        <p class="product-description-text">{{ item.description }}</p>
+                        <p>{{ item.price }}</p>
+                        <p>{{ item.stocks }}</p>
+                        <h3>Seller: {{ item.seller }}</h3>
+                    </article>
+                </div>
+            </a> 
+        {% else %} 
+            <a href="">    
+                <div class="section" name="border">
+                    <div class="sold-out-container">
+                        <h1>Sold Out</h1>
                     </div>
-                    <div class="product-name-container">
-                        <h2>{{ item.product_name }}</h2>
-                    </div>
-                    <p class="product-description-text">{{ item.description }}</p>
-                    <p>{{ item.price }}</p>
-                    <p>{{ item.stocks }}</p>
-                    <h3>Seller: {{ item.seller }}</h3>
-                </article>
-            </div>
-        </a>    
+                    <article class="item-product-display">
+                        <div class="image-container" name="border">
+                            <img class="image" src="{{ item.image.url }}" alt="{{ item.title }}"> 
+                        </div>
+                        <div class="product-name-container">
+                            <h2>{{ item.product_name }}</h2>
+                        </div>
+                        <p class="product-description-text" >{{ item.description }}</p>
+                        <p>{{ item.price }}</p>
+                        <p>{{ item.stocks }}</p>
+                        <h3>Seller: {{ item.seller }}</h3>
+                    </article>
+                </div>
+            </a> 
+        {% endif %}
     {% endfor %}
     </div>
 {% endblock %}

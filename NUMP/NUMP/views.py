@@ -30,6 +30,10 @@ def product_info(request, slug):
                 seller = order.product.seller
                 seller.revenue += order.total_price
                 seller.save()
+
+                product.stocks -= order.quantity
+                product.save()
+                    
                 # seller_wallet, created = Wallet.objects.get_or_create(user=order.product.seller, product=order.product)
                 # seller_wallet.add_revenue(order.total_price)
                 return redirect("user:order")
