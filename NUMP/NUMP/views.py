@@ -8,25 +8,6 @@ def home(request):
     product = Product.objects.all()
     return render(request, 'home.html', {'product': product})
 
-def product_info(request, slug):
-    product = get_object_or_404(Product, slug=slug)
-
-    if request.method == "POST":
-        form = BuyProduct(request.POST)
-        if form.is_valid():
-            mp_user = get_object_or_404(MarketplaceUser, user_name =request.user)
-            order = form.save(commit=False)
-            order.product = product
-            order.user = mp_user
-            order.total_price = order.calculate_total_price()
-            order.save()
-            seller = order.product.seller
-            seller.revenue += order.total_price
-            seller.save()
-            return redirect("user:order")
-    else:
-        form = BuyProduct()  
-    return render(request, 'product_info_home.html', {'form':form, 'product': product})
 
 @login_required(login_url='userAuth/login/')
 def product_info(request, slug):
@@ -46,6 +27,9 @@ def product_info(request, slug):
                 order.user = mp_user
                 order.total_price = order.calculate_total_price()
                 order.save()
+                seller = order.product.seller
+                seller.revenue += order.total_price
+                seller.save()
                 # seller_wallet, created = Wallet.objects.get_or_create(user=order.product.seller, product=order.product)
                 # seller_wallet.add_revenue(order.total_price)
                 return redirect("user:order")
