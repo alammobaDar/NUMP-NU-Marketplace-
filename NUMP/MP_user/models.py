@@ -13,11 +13,6 @@ class MarketplaceUser(models.Model):
     picture = models.ImageField(upload_to='UserProfile/', blank=True, null=True, default="No_profile.png")
     revenue = models.DecimalField(max_digits=20, decimal_places=2, default=0)       
 
-    def add_revenue(self, amount):
-        self.revenue += amount
-        self.save()
-     
-
     def __str__(self):
         return self.user_name.username
     
