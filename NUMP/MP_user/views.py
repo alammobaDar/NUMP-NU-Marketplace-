@@ -3,7 +3,7 @@ from itertools import product
 from webbrowser import get
 from django import forms
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Cart, MarketplaceUser, Order, Product
+from .models import Cart, MarketplaceUser, Order, Product, Wallet
 from .forms import BuyProduct, CreateProduct, EditProfile
 
 
@@ -27,6 +27,7 @@ def product_info_page(request, slug):
     return render(request, 'mp_user/ProductInformation.html', {'form':form, 'product':product})
 
 def my_wallet_page(request):
+    revenue = get_object_or_404(Wallet, )
     return render(request, 'mp_user/MyWallet.html')
 
 def profile_page(request):
