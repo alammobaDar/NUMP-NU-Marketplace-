@@ -4,7 +4,7 @@ from webbrowser import get
 from django import forms
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Cart, MarketplaceUser, Order, Product, Wallet
-from .forms import BuyProduct, CreateProduct, EditProfile
+from .forms import CreateProduct, EditProfile
 
 
 # Create your views here.
@@ -27,8 +27,10 @@ def product_info_page(request, slug):
     return render(request, 'mp_user/ProductInformation.html', {'form':form, 'product':product})
 
 def my_wallet_page(request):
-    revenue = get_object_or_404(Wallet, )
-    return render(request, 'mp_user/MyWallet.html')
+    user_ = get_object_or_404(MarketplaceUser, user_name=request.user)
+    revenue = get_object_or_404(Wallet, user=user_)
+    
+    return render(request, 'mp_user/MyWallet.html', {'user_':user_})
 
 def profile_page(request):
     user_info = get_object_or_404(MarketplaceUser, user_name=request.user)

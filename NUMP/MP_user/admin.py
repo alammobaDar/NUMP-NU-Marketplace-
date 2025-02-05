@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
-from .models import Cart, Order, Product, MarketplaceUser
+from .models import Cart, Order, Product, MarketplaceUser, Wallet
 
 class MarketplaceUserInLine(admin.StackedInline):
     model = MarketplaceUser
@@ -16,3 +16,4 @@ admin.site.register(MarketplaceUser)
 admin.site.register(Product)
 admin.site.register(Order)
 admin.site.register(Cart)
+admin.site.register(Wallet)

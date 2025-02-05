@@ -59,12 +59,10 @@ class Cart(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     added_at = models.DateTimeField(auto_now_add=True)
 
-    
-
 class Wallet(models.Model):
     user = models.ForeignKey(MarketplaceUser, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE) 
-    revenue = models.DecimalField(max_digits=20, decimal_places=2)       
+    revenue = models.DecimalField(max_digits=20, decimal_places=2, default=0)       
 
     def add_revenue(self):
         self.revenue += self.order.total_price
